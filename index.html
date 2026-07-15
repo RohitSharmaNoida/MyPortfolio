@@ -305,6 +305,10 @@
         }
 
         /* Nav */
+        nav#navbar {
+            transform: translateY(0px);
+        }
+
         .nav-link {
             position: relative;
             padding: 8px 0;
@@ -568,7 +572,9 @@
 
         /* Base adjustment to support pushing down navigation */
         #navbar {
+            position: sticky;
             top: var(--a11y-toolbar-height, 0px);
+            z-index: 10000;
             transition: top 0.3s ease, background 0.3s ease;
         }
 
@@ -3174,6 +3180,9 @@
 
             // Bind resize
             window.addEventListener('resize', updateToolbarHeight);
+
+            // Ensure toolbar height is set before first paint
+            updateToolbarHeight();
 
             // Toggle Panel
             togglePanelBtn.addEventListener('click', () => {
