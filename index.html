@@ -1,13 +1,18 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohit Sharma | UI Developer Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Rohit Sharma, a results-driven UI Developer & Web Designer with 4+ years of experience specializing in React, JavaScript, Material UI, Tailwind CSS, GIGW compliance, STQC audits, and accessibility.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -45,9 +50,11 @@
         ::-webkit-scrollbar {
             width: 6px;
         }
+
         ::-webkit-scrollbar-track {
             background: #0a0a0f;
         }
+
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(180deg, #6366f1, #8b5cf6);
             border-radius: 3px;
@@ -92,8 +99,15 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         /* Typing Animation */
@@ -109,8 +123,15 @@
         }
 
         @keyframes blink {
-            0%, 100% { border-color: #6366f1; }
-            50% { border-color: transparent; }
+
+            0%,
+            100% {
+                border-color: #6366f1;
+            }
+
+            50% {
+                border-color: transparent;
+            }
         }
 
         /* Floating Animation */
@@ -123,8 +144,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(3deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(3deg);
+            }
         }
 
         /* Glow Effect */
@@ -150,8 +178,15 @@
         }
 
         @keyframes borderGlow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         /* Magnetic Button */
@@ -302,10 +337,27 @@
         }
 
         @keyframes particleFloat {
-            0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.5; }
-            25% { transform: translateY(-30px) translateX(10px) scale(1.5); opacity: 0.8; }
-            50% { transform: translateY(-50px) translateX(-10px) scale(1); opacity: 0.3; }
-            75% { transform: translateY(-20px) translateX(20px) scale(1.3); opacity: 0.6; }
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.5;
+            }
+
+            25% {
+                transform: translateY(-30px) translateX(10px) scale(1.5);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: translateY(-50px) translateX(-10px) scale(1);
+                opacity: 0.3;
+            }
+
+            75% {
+                transform: translateY(-20px) translateX(20px) scale(1.3);
+                opacity: 0.6;
+            }
         }
 
         /* Section divider */
@@ -338,12 +390,16 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .cursor-follower, .cursor-dot {
+
+            .cursor-follower,
+            .cursor-dot {
                 display: none;
             }
+
             .timeline-line {
                 left: 20px;
             }
+
             .timeline-dot {
                 left: 20px;
             }
@@ -355,23 +411,57 @@
         }
 
         @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* Stagger children animation */
-        .stagger-children > * {
+        .stagger-children>* {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
-        .stagger-children.active > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-        .stagger-children.active > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-        .stagger-children.active > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-        .stagger-children.active > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
-        .stagger-children.active > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
-        .stagger-children.active > *:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active>*:nth-child(1) {
+            transition-delay: 0.1s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children.active>*:nth-child(2) {
+            transition-delay: 0.2s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children.active>*:nth-child(3) {
+            transition-delay: 0.3s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children.active>*:nth-child(4) {
+            transition-delay: 0.4s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children.active>*:nth-child(5) {
+            transition-delay: 0.5s;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-children.active>*:nth-child(6) {
+            transition-delay: 0.6s;
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* 3D tilt effect */
         .tilt-card {
@@ -453,7 +543,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Floating shapes */
@@ -468,8 +560,815 @@
         .counter {
             display: inline-block;
         }
+
+        /* --- ACCESSIBILITY STYLING --- */
+        html {
+            font-size: var(--a11y-font-size, 100%) !important;
+        }
+
+        /* Base adjustment to support pushing down navigation */
+        #navbar {
+            top: var(--a11y-toolbar-height, 0px);
+            transition: top 0.3s ease, background 0.3s ease;
+        }
+
+        .content-wrapper {
+            padding-top: var(--a11y-toolbar-height, 0px);
+            transition: padding-top 0.3s ease;
+        }
+
+        /* 1. Skip link styles */
+        .a11y-skip-link {
+            position: absolute;
+            top: -100px;
+            left: 20px;
+            background: #6366f1;
+            color: white;
+            padding: 12px 24px;
+            z-index: 100005;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: top 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.5);
+        }
+
+        .a11y-skip-link:focus-visible {
+            top: 12px;
+            outline: 3px solid #ffffff !important;
+        }
+
+        /* Accessibility Toolbar Container */
+        .a11y-toolbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100001;
+            /* Must be below skip-link but above navbar and other content */
+            background: rgba(10, 10, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            transition: max-height 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+            overflow: hidden;
+        }
+
+        /* Compact Toolbar View */
+        .a11y-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 80rem;
+            /* max-w-7xl */
+            margin: 0 auto;
+            padding: 10px 24px;
+            min-height: 48px;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .a11y-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #a78bfa;
+        }
+
+        .a11y-quick-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* Common Accessibility Buttons */
+        .a11y-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            min-width: 32px;
+            min-height: 32px;
+        }
+
+        .a11y-btn:hover {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: rgba(99, 102, 241, 0.4);
+            color: #ffffff;
+        }
+
+        .a11y-btn:focus-visible {
+            outline: 3px solid #6366f1;
+            outline-offset: 1px;
+        }
+
+        .a11y-btn-group {
+            display: inline-flex;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 2px;
+            gap: 2px;
+        }
+
+        .a11y-btn-group .a11y-btn {
+            border: none;
+            border-radius: 4px;
+            background: transparent;
+        }
+
+        .a11y-btn-group .a11y-btn:hover {
+            background: rgba(99, 102, 241, 0.15);
+        }
+
+        .a11y-btn-group .a11y-btn.active {
+            background: #6366f1;
+            color: #ffffff;
+        }
+
+        /* Expanded settings panel */
+        .a11y-panel {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(8, 8, 12, 0.98);
+            padding: 20px 24px 28px 24px;
+            display: block;
+            max-height: 500px;
+            overflow-y: auto;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+            opacity: 1;
+        }
+
+        .a11y-panel.hidden {
+            display: none;
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            opacity: 0;
+        }
+
+        .a11y-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            max-width: 80rem;
+            margin: 0 auto;
+        }
+
+        .a11y-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .a11y-group-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #818cf8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 8px;
+            margin-bottom: 4px;
+        }
+
+        .a11y-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .a11y-control-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .a11y-label {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .a11y-toggle-control {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 38px;
+        }
+
+        .a11y-toggle-control:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .a11y-toggle-control.active {
+            background: rgba(99, 102, 241, 0.15);
+            border-color: #6366f1;
+            color: #ffffff;
+        }
+
+        .a11y-toggle-control.active .a11y-status {
+            background: #6366f1;
+            color: #ffffff;
+        }
+
+        .a11y-status {
+            font-size: 10px;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #94a3b8;
+            transition: all 0.2s ease;
+        }
+
+        /* Theme buttons */
+        .a11y-theme-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-height: 38px;
+        }
+
+        .a11y-theme-btn:hover {
+            background: rgba(99, 102, 241, 0.15);
+        }
+
+        .a11y-theme-btn.active {
+            background: #6366f1;
+            border-color: #6366f1;
+            color: #ffffff;
+        }
+
+        /* Action buttons */
+        .a11y-controls-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .a11y-action-btn {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            min-height: 40px;
+        }
+
+        .a11y-action-btn:hover {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .a11y-btn-reset-all {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .a11y-btn-reset-all:hover {
+            background: #ef4444;
+            border-color: #ef4444;
+            color: #ffffff;
+        }
+
+        /* Chevron anim */
+        .a11y-chevron-icon {
+            transition: transform 0.2s ease;
+        }
+
+        .a11y-toggle-btn[aria-expanded="true"] .a11y-chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Reading Line */
+        .a11y-reading-guide {
+            position: fixed;
+            left: 0;
+            width: 100vw;
+            height: 4px;
+            background-color: #a78bfa;
+            pointer-events: none;
+            z-index: 99998;
+            box-shadow: 0 0 12px rgba(167, 139, 250, 0.8);
+            transform: translateY(-50%);
+            display: none;
+        }
+
+        .a11y-reading-guide.active {
+            display: block;
+        }
+
+        /* Reading Mask */
+        .a11y-reading-mask {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 99997;
+            display: none;
+            background: linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0.8) var(--a11y-mask-top, 40%),
+                    transparent var(--a11y-mask-top, 40%),
+                    transparent var(--a11y-mask-bottom, 60%),
+                    rgba(0, 0, 0, 0.8) var(--a11y-mask-bottom, 60%));
+        }
+
+        .a11y-reading-mask.active {
+            display: block;
+        }
+
+        /* MODAL ACCESSIBILITY STATEMENT */
+        .a11y-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100002;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: opacity 0.3s ease;
+        }
+
+        .a11y-modal.hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .a11y-modal-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+
+        .a11y-modal-content {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 600px;
+            max-height: 80vh;
+            border-radius: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(15, 15, 25, 0.95);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .a11y-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .a11y-modal-close {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .a11y-modal-close:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .a11y-modal-close:focus-visible {
+            outline: 3px solid #6366f1;
+        }
+
+        .a11y-modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Accessibility Mode Styles */
+
+        /* 3. Text spacing override */
+        .a11y-spacing-active * {
+            line-height: 1.5 !important;
+            letter-spacing: 0.12em !important;
+            word-spacing: 0.16em !important;
+        }
+
+        .a11y-spacing-active p,
+        .a11y-spacing-active li {
+            margin-bottom: 2em !important;
+        }
+
+        /* 4. Light mode override */
+        body.a11y-light-active {
+            background-color: #f8fafc !important;
+            color: #0f172a !important;
+        }
+
+        body.a11y-light-active .content-wrapper {
+            color: #0f172a !important;
+        }
+
+        body.a11y-light-active p,
+        body.a11y-light-active span:not(.a11y-status),
+        body.a11y-light-active li,
+        body.a11y-light-active a:not(.a11y-btn):not(.magnetic-btn):not(.a11y-skip-link) {
+            color: #334155 !important;
+        }
+
+        body.a11y-light-active h1,
+        body.a11y-light-active h2,
+        body.a11y-light-active h3,
+        body.a11y-light-active h4,
+        body.a11y-light-active h5,
+        body.a11y-light-active h6 {
+            color: #0f172a !important;
+        }
+
+        body.a11y-light-active .glass {
+            background: rgba(15, 23, 42, 0.04) !important;
+            border-color: rgba(15, 23, 42, 0.1) !important;
+            backdrop-filter: blur(20px) !important;
+        }
+
+        body.a11y-light-active .glass-card {
+            background: rgba(15, 23, 42, 0.03) !important;
+            border-color: rgba(15, 23, 42, 0.08) !important;
+        }
+
+        body.a11y-light-active .glass-card:hover {
+            background: rgba(99, 102, 241, 0.05) !important;
+            border-color: rgba(99, 102, 241, 0.3) !important;
+        }
+
+        body.a11y-light-active nav {
+            background: rgba(248, 250, 252, 0.8) !important;
+            border-bottom-color: rgba(15, 23, 42, 0.1) !important;
+        }
+
+        body.a11y-light-active nav a.nav-link {
+            color: #475569 !important;
+        }
+
+        body.a11y-light-active nav a.nav-link:hover {
+            color: #0f172a !important;
+        }
+
+        body.a11y-light-active #mobileMenu {
+            background: rgba(248, 250, 252, 0.95) !important;
+        }
+
+        body.a11y-light-active #mobileMenu a {
+            color: #334155 !important;
+        }
+
+        body.a11y-light-active .form-input {
+            background: rgba(15, 23, 42, 0.03) !important;
+            border-color: rgba(15, 23, 42, 0.1) !important;
+            color: #0f172a !important;
+        }
+
+        body.a11y-light-active .form-input:focus {
+            border-color: #6366f1 !important;
+            background: rgba(99, 102, 241, 0.03) !important;
+        }
+
+        body.a11y-light-active .text-gray-500 {
+            color: #64748b !important;
+        }
+
+        body.a11y-light-active .text-gray-400 {
+            color: #475569 !important;
+        }
+
+        body.a11y-light-active .text-gray-300 {
+            color: #334155 !important;
+        }
+
+        body.a11y-light-active .text-white {
+            color: #0f172a !important;
+        }
+
+        body.a11y-light-active .text-white\/5 {
+            color: rgba(15, 23, 42, 0.08) !important;
+        }
+
+        body.a11y-light-active .w-px.bg-white\/10 {
+            background-color: rgba(15, 23, 42, 0.1) !important;
+        }
+
+        body.a11y-light-active footer {
+            border-top-color: rgba(15, 23, 42, 0.08) !important;
+        }
+
+        /* 5. High contrast override */
+        body.a11y-contrast-active {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            background-image: none !important;
+        }
+
+        body.a11y-contrast-active * {
+            background-color: #000000 !important;
+            color: #ffffff !important;
+            border-color: #ffffff !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+            background-image: none !important;
+        }
+
+        body.a11y-contrast-active a,
+        body.a11y-contrast-active button {
+            color: #ffff00 !important;
+            border: 2px solid #ffff00 !important;
+            text-decoration: underline !important;
+            font-weight: 700 !important;
+        }
+
+        body.a11y-contrast-active a:hover,
+        body.a11y-contrast-active button:hover,
+        body.a11y-contrast-active a:focus-visible,
+        body.a11y-contrast-active button:focus-visible {
+            background-color: #ffff00 !important;
+            color: #000000 !important;
+        }
+
+        body.a11y-contrast-active svg {
+            fill: currentColor !important;
+            stroke: currentColor !important;
+        }
+
+        body.a11y-contrast-active #three-canvas {
+            display: none !important;
+        }
+
+        /* 6. Grayscale */
+        body.a11y-grayscale-active {
+            filter: grayscale(100%) !important;
+        }
+
+        /* 7. Dyslexia friendly font */
+        body.a11y-dyslexia-active,
+        body.a11y-dyslexia-active * {
+            font-family: 'Lexend', sans-serif !important;
+        }
+
+        /* 8. Highlight links */
+        body.a11y-links-active a:not(.a11y-btn):not(.a11y-skip-link) {
+            text-decoration: underline !important;
+            text-decoration-thickness: 3px !important;
+            text-underline-offset: 4px !important;
+            color: #ffff00 !important;
+            background-color: rgba(255, 240, 0, 0.15) !important;
+        }
+
+        body.a11y-light-active.a11y-links-active a:not(.a11y-btn):not(.a11y-skip-link) {
+            color: #0000ee !important;
+            background-color: rgba(0, 0, 238, 0.15) !important;
+        }
+
+        /* 9. Highlight headings */
+        body.a11y-headings-active h1,
+        body.a11y-headings-active h2,
+        body.a11y-headings-active h3,
+        body.a11y-headings-active h4,
+        body.a11y-headings-active h5,
+        body.a11y-headings-active h6 {
+            outline: 3px solid #f59e0b !important;
+            outline-offset: 4px !important;
+            background-color: rgba(245, 158, 11, 0.15) !important;
+        }
+
+        /* 10. Big Cursor custom adjustment */
+        body.a11y-cursor-active {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M0 0 L32 32 L16 36 L12 48 Z' fill='white' stroke='black' stroke-width='3'/%3E%3C/svg%3E"), auto !important;
+        }
+
+        body.a11y-cursor-active * {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M0 0 L32 32 L16 36 L12 48 Z' fill='white' stroke='black' stroke-width='3'/%3E%3C/svg%3E"), auto !important;
+        }
+
+        body.a11y-cursor-active #cursorFollower {
+            width: 60px !important;
+            height: 60px !important;
+            border-width: 4px !important;
+            border-color: #a78bfa !important;
+        }
+
+        body.a11y-cursor-active #cursorDot {
+            width: 14px !important;
+            height: 14px !important;
+            background-color: #a78bfa !important;
+        }
+
+        /* 13. Pause animations & Transitions */
+        body.a11y-animations-active *,
+        body.a11y-animations-active *::before,
+        body.a11y-animations-active *::after {
+            animation-duration: 0.001ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.001ms !important;
+            scroll-behavior: auto !important;
+        }
+
+        body.a11y-animations-active .float,
+        body.a11y-animations-active .float-delay,
+        body.a11y-animations-active .marquee,
+        body.a11y-animations-active .typing-text {
+            animation: none !important;
+            border-right-width: 0 !important;
+        }
+
+        /* 14. Hide Images */
+        body.a11y-images-active img,
+        body.a11y-images-active svg:not(.a11y-icon),
+        body.a11y-images-active [style*="background-image"] {
+            visibility: hidden !important;
+        }
+
+        /* 17. Focus Highlight */
+        body.a11y-focus-active *:focus-visible {
+            outline: 4px solid #f59e0b !important;
+            outline-offset: 3px !important;
+            box-shadow: 0 0 12px rgba(245, 158, 11, 0.6) !important;
+        }
+
+        /* Mobile responsive fixes */
+        @media (max-width: 768px) {
+            .a11y-panel {
+                max-height: 380px;
+            }
+
+            .a11y-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .a11y-top-bar {
+                padding: 8px 16px;
+            }
+        }
+
+        /* High visibility & contrast fixes for Light Mode */
+        body.a11y-light-active #a11y-toolbar,
+        body.a11y-light-active #a11y-toolbar * {
+            color: #ffffff !important;
+        }
+
+        body.a11y-light-active #a11y-toolbar .a11y-btn {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+            color: #ffffff !important;
+        }
+
+        body.a11y-light-active #a11y-toolbar .a11y-btn:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+            color: #ffffff !important;
+        }
+
+        body.a11y-light-active #a11y-toolbar .a11y-btn.active {
+            background: #6366f1 !important;
+            border-color: #6366f1 !important;
+            color: #ffffff !important;
+        }
+
+        body.a11y-light-active #a11y-toolbar .a11y-status {
+            background: #6366f1 !important;
+            color: #ffffff !important;
+        }
+
+        body.a11y-light-active #a11y-toolbar .a11y-group-title {
+            color: #818cf8 !important;
+        }
+
+        body.a11y-light-active #a11y-toolbar .a11y-toggle-control {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border-color: rgba(255, 255, 255, 0.08) !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.a11y-light-active #a11y-toolbar .a11y-toggle-control.active {
+            background: rgba(99, 102, 241, 0.15) !important;
+            border-color: rgba(99, 102, 241, 0.4) !important;
+            color: #ffffff !important;
+        }
+
+        body.a11y-light-active #a11y-toolbar .a11y-theme-btn {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            color: #e2e8f0 !important;
+        }
+
+        body.a11y-light-active #a11y-toolbar .a11y-theme-btn.active {
+            background: #6366f1 !important;
+            border-color: #6366f1 !important;
+            color: #ffffff !important;
+        }
+
+        body.a11y-light-active #a11y-toolbar #a11y-reset-all-btn {
+            color: #f87171 !important;
+        }
+
+        body.a11y-light-active #a11y-toolbar #a11y-reset-all-btn:hover {
+            color: #ffffff !important;
+            background: #ef4444 !important;
+        }
+
+        body.a11y-light-active #a11y-modal .a11y-modal-content {
+            background: rgba(15, 15, 25, 0.98) !important;
+            border-color: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        body.a11y-light-active #a11y-modal .a11y-modal-header h2 {
+            color: #ffffff !important;
+        }
+
+        body.a11y-light-active #a11y-modal .a11y-modal-body {
+            color: #cbd5e1 !important;
+        }
+
+        body.a11y-light-active #a11y-modal .a11y-modal-body strong {
+            color: #ffffff !important;
+        }
+
+        body.a11y-light-active #a11y-modal .a11y-modal-body a {
+            color: #818cf8 !important;
+        }
+
+        /* Ensure main site buttons retain high contrast white text in light mode */
+        body.a11y-light-active .magnetic-btn,
+        body.a11y-light-active .magnetic-btn *,
+        body.a11y-light-active button[type="submit"],
+        body.a11y-light-active button[type="submit"] * {
+            color: #ffffff !important;
+        }
     </style>
 </head>
+
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
@@ -488,21 +1387,200 @@
 
     <!-- Content -->
     <div class="content-wrapper">
+        <!-- Skip to Content Link -->
+        <a href="#main-content" class="a11y-skip-link">Skip to Content</a>
+
+        <!-- Accessibility Toolbar -->
+        <div id="a11y-toolbar" class="a11y-toolbar" role="region" aria-label="Accessibility Tools" tabindex="-1">
+            <!-- Compact View -->
+            <div class="a11y-top-bar">
+                <div class="a11y-brand">
+                    <svg class="a11y-icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor"
+                            d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z" />
+                    </svg>
+                    <span>Accessibility</span>
+                </div>
+
+                <div class="a11y-quick-actions">
+                    <div class="a11y-btn-group" role="group" aria-label="Quick Font Resize">
+                        <button type="button" class="a11y-btn" id="a11y-quick-font-dec"
+                            aria-label="Decrease Font Size">A-</button>
+                        <button type="button" class="a11y-btn" id="a11y-quick-font-inc"
+                            aria-label="Increase Font Size">A+</button>
+                    </div>
+
+                    <button type="button" class="a11y-btn" id="a11y-quick-contrast" aria-label="Toggle High Contrast">
+                        <svg class="a11y-icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="currentColor"
+                                d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8v16z" />
+                        </svg>
+                        <span>Contrast</span>
+                    </button>
+
+                    <!-- <button type="button" class="a11y-btn" id="a11y-statement-btn" aria-label="Accessibility Statement">
+                        <svg class="a11y-icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="currentColor"
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h-2v2h2v4zm0-8h-2V7h2v2z" />
+                        </svg>
+                        <span>Statement</span>
+                    </button> -->
+
+                    <button type="button" class="a11y-btn" id="a11y-reset-all-btn" aria-label="Reset All Settings"
+                        style="color: #f87171;">
+                        <svg class="a11y-icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="currentColor"
+                                d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+                        </svg>
+                        <span>Reset All</span>
+                    </button>
+
+                    <button type="button" class="a11y-btn" id="a11y-toggle-panel" aria-expanded="false"
+                        aria-controls="a11y-panel">
+                        <span>Settings</span>
+                        <svg class="a11y-chevron-icon" aria-hidden="true" viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Expanded Panel -->
+            <div id="a11y-panel" class="a11y-panel hidden" aria-hidden="true">
+                <div class="a11y-grid">
+                    <!-- Text Controls -->
+                    <div class="a11y-group" role="group" aria-labelledby="a11y-g-text">
+                        <h3 id="a11y-g-text" class="a11y-group-title">Text & Reading</h3>
+                        <div class="a11y-controls">
+                            <div class="a11y-control-row">
+                                <span class="a11y-label">Font Size</span>
+                                <div class="a11y-btn-group">
+                                    <button type="button" class="a11y-btn" id="a11y-font-dec"
+                                        aria-label="Decrease Font Size">A-</button>
+                                    <button type="button" class="a11y-btn" id="a11y-font-reset"
+                                        aria-label="Reset Font Size">Reset</button>
+                                    <button type="button" class="a11y-btn" id="a11y-font-inc"
+                                        aria-label="Increase Font Size">A+</button>
+                                </div>
+                            </div>
+                            <button type="button" class="a11y-toggle-control" id="a11y-text-spacing-toggle"
+                                aria-pressed="false">
+                                <span class="a11y-toggle-label">Enhanced Text Spacing</span>
+                                <span class="a11y-status">Off</span>
+                            </button>
+                            <button type="button" class="a11y-toggle-control" id="a11y-dyslexia-toggle"
+                                aria-pressed="false">
+                                <span class="a11y-toggle-label">Dyslexia Friendly Font</span>
+                                <span class="a11y-status">Off</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Themes -->
+                    <div class="a11y-group" role="group" aria-labelledby="a11y-g-themes">
+                        <h3 id="a11y-g-themes" class="a11y-group-title">Contrast Themes</h3>
+                        <div class="a11y-controls">
+                            <button type="button" class="a11y-theme-btn active" id="a11y-theme-default"
+                                aria-pressed="true">Default Theme</button>
+                            <button type="button" class="a11y-theme-btn" id="a11y-theme-light"
+                                aria-pressed="false">Light Theme</button>
+                            <button type="button" class="a11y-theme-btn" id="a11y-theme-contrast"
+                                aria-pressed="false">High Contrast</button>
+                            <button type="button" class="a11y-theme-btn" id="a11y-theme-grayscale"
+                                aria-pressed="false">Grayscale Theme</button>
+                        </div>
+                    </div>
+
+                    <!-- Visual Aids -->
+                    <div class="a11y-group" role="group" aria-labelledby="a11y-g-visual">
+                        <h3 id="a11y-g-visual" class="a11y-group-title">Visual Assists</h3>
+                        <div class="a11y-controls">
+                            <button type="button" class="a11y-toggle-control" id="a11y-links-toggle"
+                                aria-pressed="false">
+                                <span class="a11y-toggle-label">Highlight Links</span>
+                                <span class="a11y-status">Off</span>
+                            </button>
+                            <button type="button" class="a11y-toggle-control" id="a11y-headings-toggle"
+                                aria-pressed="false">
+                                <span class="a11y-toggle-label">Highlight Headings</span>
+                                <span class="a11y-status">Off</span>
+                            </button>
+                            <button type="button" class="a11y-toggle-control" id="a11y-cursor-toggle"
+                                aria-pressed="false">
+                                <span class="a11y-toggle-label">Big Cursor</span>
+                                <span class="a11y-status">Off</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reading Tools -->
+                    <div class="a11y-group" role="group" aria-labelledby="a11y-g-reading">
+                        <h3 id="a11y-g-reading" class="a11y-group-title">Reading Tools</h3>
+                        <div class="a11y-controls">
+                            <button type="button" class="a11y-toggle-control" id="a11y-guide-toggle"
+                                aria-pressed="false">
+                                <span class="a11y-toggle-label">Reading Guide Line</span>
+                                <span class="a11y-status">Off</span>
+                            </button>
+                            <button type="button" class="a11y-toggle-control" id="a11y-mask-toggle"
+                                aria-pressed="false">
+                                <span class="a11y-toggle-label">Reading Mask Area</span>
+                                <span class="a11y-status">Off</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Content & Motion -->
+                    <div class="a11y-group" role="group" aria-labelledby="a11y-g-motion">
+                        <h3 id="a11y-g-motion" class="a11y-group-title">Content & Motion</h3>
+                        <div class="a11y-controls">
+                            <button type="button" class="a11y-toggle-control" id="a11y-animations-toggle"
+                                aria-pressed="false">
+                                <span class="a11y-toggle-label">Pause Animations</span>
+                                <span class="a11y-status">Off</span>
+                            </button>
+                            <button type="button" class="a11y-toggle-control" id="a11y-images-toggle"
+                                aria-pressed="false">
+                                <span class="a11y-toggle-label">Hide Images</span>
+                                <span class="a11y-status">Off</span>
+                            </button>
+                            <button type="button" class="a11y-toggle-control" id="a11y-focus-toggle"
+                                aria-pressed="false">
+                                <span class="a11y-toggle-label">Visible Focus Box</span>
+                                <span class="a11y-status">Off</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
         <!-- Navigation -->
         <nav class="fixed top-0 left-0 right-0 z-50 glass" id="navbar">
             <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                <a href="#" class="text-2xl font-bold font-['Space_Grotesk'] gradient-text">R.S</a>
+                <a href="#" class="flex items-center group">
+                    <img src="logo.svg" alt="Rohit Sharma Logo"
+                        class="h-20 w-auto transition-transform duration-300 group-hover:scale-110">
+                </a>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#home" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
                     <a href="#about" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">About</a>
-                    <a href="#skills" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Skills</a>
-                    <a href="#projects" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Projects</a>
-                    <a href="#experience" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Experience</a>
-                    <a href="#contact" class="magnetic-btn px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all">Contact</a>
+                    <a href="#skills"
+                        class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Skills</a>
+                    <a href="#projects"
+                        class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Projects</a>
+                    <a href="#experience"
+                        class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Experience</a>
+                    <a href="#contact"
+                        class="magnetic-btn px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all">Contact</a>
                 </div>
-                <button class="md:hidden text-white" id="mobileMenuBtn">
+                <button class="md:hidden text-white" id="mobileMenuBtn" aria-label="Toggle Navigation Menu"
+                    aria-expanded="false" aria-controls="mobileMenu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
             </div>
@@ -519,618 +1597,957 @@
             </div>
         </nav>
 
-        <!-- Hero Section -->
-        <section id="home" class="page-section flex items-center justify-center relative overflow-hidden">
-            <!-- Floating Shapes -->
-            <div class="shape w-96 h-96 bg-indigo-500 top-20 -left-48"></div>
-            <div class="shape w-80 h-80 bg-purple-500 bottom-20 -right-40"></div>
-            <div class="shape w-64 h-64 bg-pink-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-            
-            <div class="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-12 items-center">
-                <div class="text-center lg:text-left">
-                    <div class="reveal" data-delay="0.2">
-                        <p class="text-indigo-400 font-medium mb-4 text-lg tracking-wider">👋 Hello, I'm</p>
-                    </div>
-                    <div class="reveal" data-delay="0.4">
-                        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black font-['Space_Grotesk'] leading-tight mb-4">
-                            Rohit<br><span class="gradient-text">Sharma</span>
-                        </h1>
-                    </div>
-                    <div class="reveal" data-delay="0.6">
-                        <div class="typing-container mb-8">
-                            <span class="text-xl md:text-2xl text-gray-400 typing-text" id="typingText"></span>
+        <!-- Main Content -->
+        <main id="main-content" tabindex="-1">
+            <!-- Hero Section -->
+            <section id="home" class="page-section flex items-center justify-center relative overflow-hidden">
+                <!-- Floating Shapes -->
+                <div class="shape w-96 h-96 bg-indigo-500 top-20 -left-48"></div>
+                <div class="shape w-80 h-80 bg-purple-500 bottom-20 -right-40"></div>
+                <div class="shape w-64 h-64 bg-pink-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+                <div class="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center lg:text-left">
+                        <div class="reveal" data-delay="0.2">
+                            <p class="text-indigo-400 font-medium mb-4 text-lg tracking-wider">👋 Hello, I'm</p>
+                        </div>
+                        <div class="reveal" data-delay="0.4">
+                            <h1
+                                class="text-5xl md:text-7xl lg:text-8xl font-black font-['Space_Grotesk'] leading-tight mb-4">
+                                Rohit<br><span class="gradient-text">Sharma</span>
+                            </h1>
+                        </div>
+                        <div class="reveal" data-delay="0.6">
+                            <div class="typing-container mb-8">
+                                <span class="text-xl md:text-2xl text-gray-400 typing-text" id="typingText"></span>
+                            </div>
+                        </div>
+                        <div class="reveal" data-delay="0.8">
+                            <p class="text-gray-400 text-lg max-w-lg mb-10 leading-relaxed">
+                                Results-driven UI Developer with 4+ years of experience designing and delivering
+                                responsive,
+                                accessible, and high-performance web applications.
+                            </p>
+                        </div>
+                        <div class="reveal flex flex-wrap gap-4 justify-center lg:justify-start" data-delay="1">
+                            <a href="#projects"
+                                class="magnetic-btn px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full font-semibold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
+                                View My Work
+                            </a>
+                            <a href="#contact"
+                                class="magnetic-btn px-8 py-4 border border-white/20 rounded-full font-semibold hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
+                                Let's Talk
+                            </a>
+                        </div>
+                        <div class="reveal flex items-center gap-8 mt-12 justify-center lg:justify-start"
+                            data-delay="1.2">
+                            <div class="text-center">
+                                <span class="text-3xl font-bold font-['Space_Grotesk'] counter"
+                                    data-target="10">0</span><span class="text-indigo-400 text-2xl font-bold">+</span>
+                                <p class="text-gray-500 text-sm mt-1">Projects</p>
+                            </div>
+                            <div class="w-px h-12 bg-white/10"></div>
+                            <div class="text-center">
+                                <span class="text-3xl font-bold font-['Space_Grotesk'] counter"
+                                    data-target="4">0</span><span class="text-indigo-400 text-2xl font-bold">+</span>
+                                <p class="text-gray-500 text-sm mt-1">Years Exp</p>
+                            </div>
+                            <div class="w-px h-12 bg-white/10"></div>
+                            <div class="text-center">
+                                <span class="text-3xl font-bold font-['Space_Grotesk'] counter"
+                                    data-target="6">0</span><span class="text-indigo-400 text-2xl font-bold">+</span>
+                                <p class="text-gray-500 text-sm mt-1">Govt Portals</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="reveal" data-delay="0.8">
-                        <p class="text-gray-400 text-lg max-w-lg mb-10 leading-relaxed">
-                            I craft pixel-perfect, accessible, and performant user interfaces that delight users and drive business results.
-                        </p>
-                    </div>
-                    <div class="reveal flex flex-wrap gap-4 justify-center lg:justify-start" data-delay="1">
-                        <a href="#projects" class="magnetic-btn px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full font-semibold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            View My Work
-                        </a>
-                        <a href="#contact" class="magnetic-btn px-8 py-4 border border-white/20 rounded-full font-semibold hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
-                            Let's Talk
-                        </a>
-                    </div>
-                    <div class="reveal flex items-center gap-8 mt-12 justify-center lg:justify-start" data-delay="1.2">
-                        <div class="text-center">
-                            <span class="text-3xl font-bold font-['Space_Grotesk'] counter" data-target="50">0</span><span class="text-indigo-400 text-2xl font-bold">+</span>
-                            <p class="text-gray-500 text-sm mt-1">Projects</p>
-                        </div>
-                        <div class="w-px h-12 bg-white/10"></div>
-                        <div class="text-center">
-                            <span class="text-3xl font-bold font-['Space_Grotesk'] counter" data-target="5">0</span><span class="text-indigo-400 text-2xl font-bold">+</span>
-                            <p class="text-gray-500 text-sm mt-1">Years Exp</p>
-                        </div>
-                        <div class="w-px h-12 bg-white/10"></div>
-                        <div class="text-center">
-                            <span class="text-3xl font-bold font-['Space_Grotesk'] counter" data-target="30">0</span><span class="text-indigo-400 text-2xl font-bold">+</span>
-                            <p class="text-gray-500 text-sm mt-1">Clients</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative flex justify-center reveal-right" data-delay="0.6">
-                    <div class="relative w-80 h-80 md:w-96 md:h-96">
-                        <!-- 3D-like avatar container -->
-                        <div class="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 animate-pulse"></div>
-                        <div class="absolute inset-4 rounded-full bg-gradient-to-br from-indigo-500/10 to-purple-500/10 float">
-                            <div class="w-full h-full rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 flex items-center justify-center overflow-hidden">
-                                <svg class="w-48 h-48 text-indigo-400/50" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                    <div class="relative flex justify-center reveal-right" data-delay="0.6">
+                        <div class="relative w-80 h-80 md:w-96 md:h-96">
+                            <!-- 3D-like avatar container -->
+                            <div
+                                class="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 animate-pulse">
+                            </div>
+                            <div
+                                class="absolute inset-4 rounded-full bg-gradient-to-br from-indigo-500/10 to-purple-500/10 float">
+                                <div
+                                    class="w-full h-full rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 flex items-center justify-center overflow-hidden">
+                                    <svg class="w-48 h-48 text-indigo-400/50" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- Floating tech icons -->
+                            <div class="absolute -top-4 right-8 glass-card p-3 rounded-xl float">
+                                <svg class="w-8 h-8 text-blue-400" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.31 0-.592.068-.845.198C4.558 2.37 4.322 4.267 5.16 6.84 3.2 8.258 1.836 9.852 1.836 11.16c0 .807.42 1.482 1.198 1.95-.164.464-.25.94-.25 1.39 0 1.3.97 2.263 2.7 2.756-.07.38-.104.766-.104 1.145 0 2.14 1.39 3.398 3.715 3.398 1.616 0 3.636-.706 5.882-2.076 2.246 1.37 4.266 2.076 5.882 2.076 2.325 0 3.715-1.258 3.715-3.398 0-.38-.034-.764-.104-1.145 1.73-.493 2.7-1.456 2.7-2.756 0-.45-.086-.927-.25-1.39.778-.468 1.198-1.143 1.198-1.95 0-1.308-1.364-2.902-3.324-4.32.838-2.573.603-4.47-.998-5.305a1.883 1.883 0 0 0-.846-.198z" />
+                                </svg>
+                            </div>
+                            <div class="absolute top-1/2 -left-8 glass-card p-3 rounded-xl float-delay">
+                                <svg class="w-8 h-8 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                </svg>
+                            </div>
+                            <div class="absolute -bottom-4 right-12 glass-card p-3 rounded-xl float">
+                                <svg class="w-8 h-8 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M11.572 0c-.176.311-.243.678-.195 1.075.2.495.535.992.972 1.172.74.306 1.573.446 2.333.63.865.21 1.68.57 2.29 1.322.468.576.75 1.298.852 2.052.145 1.062-.06 2.2-.593 3.166-.795 1.44-2.246 2.342-3.86 2.676-1.136.235-2.312.228-3.46.05-1.66-.258-3.134-1.095-4.245-2.31-.82-.894-1.375-2.024-1.577-3.195-.134-.774-.132-1.58.044-2.348.332-1.448 1.245-2.656 2.49-3.462 1.1-.714 2.378-1.036 3.688-1.106.37-.02.743-.01 1.113.02.706.055 1.394.22 2.05.49.498.206 1.07.474 1.316 1.01.158.342.168.733.098 1.1-.1.538-.412 1.026-.837 1.33-.545.39-1.228.57-1.883.636-.372.037-.746.04-1.116.003-.503-.05-.994-.18-1.406-.464-.49-.34-.806-.876-.872-1.476-.05-.46.012-.94.198-1.35-.3.015-.595.062-.88.142z" />
                                 </svg>
                             </div>
                         </div>
-                        <!-- Floating tech icons -->
-                        <div class="absolute -top-4 right-8 glass-card p-3 rounded-xl float">
-                            <svg class="w-8 h-8 text-blue-400" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.31 0-.592.068-.845.198C4.558 2.37 4.322 4.267 5.16 6.84 3.2 8.258 1.836 9.852 1.836 11.16c0 .807.42 1.482 1.198 1.95-.164.464-.25.94-.25 1.39 0 1.3.97 2.263 2.7 2.756-.07.38-.104.766-.104 1.145 0 2.14 1.39 3.398 3.715 3.398 1.616 0 3.636-.706 5.882-2.076 2.246 1.37 4.266 2.076 5.882 2.076 2.325 0 3.715-1.258 3.715-3.398 0-.38-.034-.764-.104-1.145 1.73-.493 2.7-1.456 2.7-2.756 0-.45-.086-.927-.25-1.39.778-.468 1.198-1.143 1.198-1.95 0-1.308-1.364-2.902-3.324-4.32.838-2.573.603-4.47-.998-5.305a1.883 1.883 0 0 0-.846-.198z"/>
-                            </svg>
-                        </div>
-                        <div class="absolute top-1/2 -left-8 glass-card p-3 rounded-xl float-delay">
-                            <svg class="w-8 h-8 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                            </svg>
-                        </div>
-                        <div class="absolute -bottom-4 right-12 glass-card p-3 rounded-xl float">
-                            <svg class="w-8 h-8 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M11.572 0c-.176.311-.243.678-.195 1.075.2.495.535.992.972 1.172.74.306 1.573.446 2.333.63.865.21 1.68.57 2.29 1.322.468.576.75 1.298.852 2.052.145 1.062-.06 2.2-.593 3.166-.795 1.44-2.246 2.342-3.86 2.676-1.136.235-2.312.228-3.46.05-1.66-.258-3.134-1.095-4.245-2.31-.82-.894-1.375-2.024-1.577-3.195-.134-.774-.132-1.58.044-2.348.332-1.448 1.245-2.656 2.49-3.462 1.1-.714 2.378-1.036 3.688-1.106.37-.02.743-.01 1.113.02.706.055 1.394.22 2.05.49.498.206 1.07.474 1.316 1.01.158.342.168.733.098 1.1-.1.538-.412 1.026-.837 1.33-.545.39-1.228.57-1.883.636-.372.037-.746.04-1.116.003-.503-.05-.994-.18-1.406-.464-.49-.34-.806-.876-.872-1.476-.05-.46.012-.94.198-1.35-.3.015-.595.062-.88.142z"/>
-                            </svg>
-                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Scroll indicator -->
-            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-                <span class="text-xs text-gray-500 tracking-widest">SCROLL</span>
-                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                </svg>
-            </div>
-        </section>
-
-        <!-- Marquee Section -->
-        <div class="py-8 overflow-hidden border-y border-white/5">
-            <div class="marquee flex items-center gap-12 whitespace-nowrap">
-                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">UI DEVELOPMENT</span>
-                <span class="text-indigo-500 text-4xl">✦</span>
-                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">REACT</span>
-                <span class="text-purple-500 text-4xl">✦</span>
-                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">COMPONENT DESIGN</span>
-                <span class="text-pink-500 text-4xl">✦</span>
-                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">ANIMATION</span>
-                <span class="text-indigo-500 text-4xl">✦</span>
-                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">UI DEVELOPMENT</span>
-                <span class="text-indigo-500 text-4xl">✦</span>
-                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">REACT</span>
-                <span class="text-purple-500 text-4xl">✦</span>
-                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">COMPONENT DESIGN</span>
-                <span class="text-pink-500 text-4xl">✦</span>
-                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">ANIMATION</span>
-                <span class="text-indigo-500 text-4xl">✦</span>
-            </div>
-        </div>
-
-        <!-- About Section -->
-        <section id="about" class="page-section py-32 relative">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="reveal mb-16">
-                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">GET TO KNOW ME</p>
-                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">About <span class="gradient-text">Me</span></h2>
+                <!-- Scroll indicator -->
+                <div
+                    class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+                    <span class="text-xs text-gray-500 tracking-widest">SCROLL</span>
+                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                    </svg>
                 </div>
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <div class="reveal-left">
-                        <div class="relative">
-                            <div class="glass-card rounded-3xl p-8 relative overflow-hidden">
-                                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-indigo-500/20 to-transparent rounded-bl-full"></div>
-                                <div class="grid grid-cols-2 gap-4">
-                                    <div class="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-2xl p-6 border border-indigo-500/20">
-                                        <span class="text-3xl mb-2 block">🎨</span>
-                                        <h4 class="font-semibold text-sm">UI Design</h4>
-                                        <p class="text-xs text-gray-400 mt-1">Figma, Sketch</p>
+            </section>
+
+            <!-- Marquee Section -->
+            <div class="py-8 overflow-hidden border-y border-white/5">
+                <div class="marquee flex items-center gap-12 whitespace-nowrap">
+                    <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">UI
+                        DEVELOPMENT</span>
+                    <span class="text-indigo-500 text-4xl">✦</span>
+                    <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">REACT</span>
+                    <span class="text-purple-500 text-4xl">✦</span>
+                    <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">COMPONENT
+                        DESIGN</span>
+                    <span class="text-pink-500 text-4xl">✦</span>
+                    <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">ANIMATION</span>
+                    <span class="text-indigo-500 text-4xl">✦</span>
+                    <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">UI
+                        DEVELOPMENT</span>
+                    <span class="text-indigo-500 text-4xl">✦</span>
+                    <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">REACT</span>
+                    <span class="text-purple-500 text-4xl">✦</span>
+                    <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">COMPONENT
+                        DESIGN</span>
+                    <span class="text-pink-500 text-4xl">✦</span>
+                    <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">ANIMATION</span>
+                    <span class="text-indigo-500 text-4xl">✦</span>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <section id="about" class="page-section py-32 relative">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="reveal mb-16">
+                        <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">GET TO KNOW ME</p>
+                        <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">About <span
+                                class="gradient-text">Me</span></h2>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-16 items-center">
+                        <div class="reveal-left">
+                            <div class="relative">
+                                <div class="glass-card rounded-3xl p-8 relative overflow-hidden">
+                                    <div
+                                        class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-indigo-500/20 to-transparent rounded-bl-full">
                                     </div>
-                                    <div class="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20">
-                                        <span class="text-3xl mb-2 block">⚡</span>
-                                        <h4 class="font-semibold text-sm">Performance</h4>
-                                        <p class="text-xs text-gray-400 mt-1">Core Web Vitals</p>
-                                    </div>
-                                    <div class="bg-gradient-to-br from-pink-500/10 to-red-500/10 rounded-2xl p-6 border border-pink-500/20">
-                                        <span class="text-3xl mb-2 block">📱</span>
-                                        <h4 class="font-semibold text-sm">Responsive</h4>
-                                        <p class="text-xs text-gray-400 mt-1">Mobile First</p>
-                                    </div>
-                                    <div class="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-2xl p-6 border border-cyan-500/20">
-                                        <span class="text-3xl mb-2 block">♿</span>
-                                        <h4 class="font-semibold text-sm">A11y</h4>
-                                        <p class="text-xs text-gray-400 mt-1">WCAG 2.1 AA</p>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div
+                                            class="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-2xl p-6 border border-indigo-500/20">
+                                            <span class="text-3xl mb-2 block">🎨</span>
+                                            <h4 class="font-semibold text-sm">UI Design</h4>
+                                            <p class="text-xs text-gray-400 mt-1">Figma, Prototyping</p>
+                                        </div>
+                                        <div
+                                            class="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20">
+                                            <span class="text-3xl mb-2 block">⚡</span>
+                                            <h4 class="font-semibold text-sm">Performance</h4>
+                                            <p class="text-xs text-gray-400 mt-1">Clean & Scalable Code</p>
+                                        </div>
+                                        <div
+                                            class="bg-gradient-to-br from-pink-500/10 to-red-500/10 rounded-2xl p-6 border border-pink-500/20">
+                                            <span class="text-3xl mb-2 block">📱</span>
+                                            <h4 class="font-semibold text-sm">Responsive</h4>
+                                            <p class="text-xs text-gray-400 mt-1">Bootstrap & Tailwind</p>
+                                        </div>
+                                        <div
+                                            class="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-2xl p-6 border border-cyan-500/20">
+                                            <span class="text-3xl mb-2 block">♿</span>
+                                            <h4 class="font-semibold text-sm">Accessibility</h4>
+                                            <p class="text-xs text-gray-400 mt-1">GIGW & WCAG 2.1</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="reveal-right">
-                        <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                            I'm a passionate UI Developer with <span class="text-indigo-400 font-semibold">5+ years</span> of experience building modern, responsive web applications. I bridge the gap between design and development, creating interfaces that are both beautiful and functional.
-                        </p>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                            My expertise spans the full frontend stack - from crafting pixel-perfect components to implementing complex animations and optimizing for performance. I believe in writing clean, maintainable code that scales.
-                        </p>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 glass-card rounded-full text-sm text-indigo-300">Problem Solver</span>
-                            <span class="px-4 py-2 glass-card rounded-full text-sm text-purple-300">Detail Oriented</span>
-                            <span class="px-4 py-2 glass-card rounded-full text-sm text-pink-300">Team Player</span>
-                            <span class="px-4 py-2 glass-card rounded-full text-sm text-cyan-300">Fast Learner</span>
-                            <span class="px-4 py-2 glass-card rounded-full text-sm text-green-300">Creative Thinker</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-32 relative">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="reveal mb-16 text-center">
-                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">WHAT I DO</p>
-                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">My <span class="gradient-text">Skills</span></h2>
-                </div>
-                
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children" id="skillsGrid">
-                    <div class="glass-card rounded-2xl p-8 tilt-card">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.07-.999.07-.999-11.97.003.698 7.994h8.364l-.35 3.494-3.243.924-3.267-.924-.175-2.01H6.22l.386 4.2 6.387 1.832 6.394-1.832.824-9.968H8.531z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Frontend Core</h3>
-                        <p class="text-gray-400 text-sm mb-4">HTML5, CSS3, JavaScript (ES6+), TypeScript</p>
-                        <div class="skill-bar mb-2">
-                            <div class="skill-fill" style="width: 95%"></div>
-                        </div>
-                        <span class="text-xs text-gray-500">95% Proficiency</span>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-8 tilt-card">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
-                                <circle cx="12" cy="12" r="2.139"/>
-                                <path d="M12 5.561c4.498 0 8.556.182 11.375 1.313 1.593.639 2.347 1.398 2.347 2.127 0 .727-.754 1.487-2.347 2.126C20.556 12.258 16.498 12.44 12 12.44s-8.556-.182-11.375-1.314C-.593 10.487-1.347 9.727-1.347 9c0-.728.754-1.488 2.347-2.127C3.444 5.743 7.502 5.56 12 5.561zM12 0C6.477 0 2 4.477 2 10h10V0z" transform="translate(0, 2)" opacity="0"/>
-                                <ellipse cx="12" cy="12" rx="10.5" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(0, 12, 12)"/>
-                                <ellipse cx="12" cy="12" rx="10.5" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(60, 12, 12)"/>
-                                <ellipse cx="12" cy="12" rx="10.5" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(120, 12, 12)"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">React Ecosystem</h3>
-                        <p class="text-gray-400 text-sm mb-4">React, Next.js, Redux, Zustand, React Query</p>
-                        <div class="skill-bar mb-2">
-                            <div class="skill-fill" style="width: 92%"></div>
-                        </div>
-                        <span class="text-xs text-gray-500">92% Proficiency</span>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-8 tilt-card">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">CSS & Animation</h3>
-                        <p class="text-gray-400 text-sm mb-4">Tailwind, SCSS, Framer Motion, GSAP</p>
-                        <div class="skill-bar mb-2">
-                            <div class="skill-fill" style="width: 90%"></div>
-                        </div>
-                        <span class="text-xs text-gray-500">90% Proficiency</span>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-8 tilt-card">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Testing & Quality</h3>
-                        <p class="text-gray-400 text-sm mb-4">Jest, React Testing Library, Cypress, Playwright</p>
-                        <div class="skill-bar mb-2">
-                            <div class="skill-fill" style="width: 85%"></div>
-                        </div>
-                        <span class="text-xs text-gray-500">85% Proficiency</span>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-8 tilt-card">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Build Tools</h3>
-                        <p class="text-gray-400 text-sm mb-4">Vite, Webpack, Rollup, esbuild, Turborepo</p>
-                        <div class="skill-bar mb-2">
-                            <div class="skill-fill" style="width: 88%"></div>
-                        </div>
-                        <span class="text-xs text-gray-500">88% Proficiency</span>
-                    </div>
-
-                    <div class="glass-card rounded-2xl p-8 tilt-card">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500/20 to-rose-500/20 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">UI Libraries</h3>
-                        <p class="text-gray-400 text-sm mb-4">Storybook, Radix UI, Headless UI, MUI</p>
-                        <div class="skill-bar mb-2">
-                            <div class="skill-fill" style="width: 91%"></div>
-                        </div>
-                        <span class="text-xs text-gray-500">91% Proficiency</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-32 relative">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="reveal mb-16 text-center">
-                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">MY WORK</p>
-                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Featured <span class="gradient-text">Projects</span></h2>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Project 1 -->
-                    <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.1">
-                        <div class="relative h-64 overflow-hidden">
-                            <div class="project-img w-full h-full bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 flex items-center justify-center">
-                                <div class="text-center">
-                                    <span class="text-6xl">🛍️</span>
-                                    <p class="text-xl font-bold mt-4">E-Commerce Platform</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
-                                <a href="#" class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">Live Demo</a>
-                                <a href="#" class="px-6 py-3 border border-white text-white rounded-full font-medium text-sm hover:bg-white/10 transition-colors">GitHub</a>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-2">ShopFlow</h3>
-                            <p class="text-gray-400 mb-4">A modern e-commerce platform with real-time inventory, AI recommendations, and seamless checkout experience.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full text-xs">React</span>
-                                <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">Next.js</span>
-                                <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">Stripe</span>
-                                <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">Tailwind</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.2">
-                        <div class="relative h-64 overflow-hidden">
-                            <div class="project-img w-full h-full bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 flex items-center justify-center">
-                                <div class="text-center">
-                                    <span class="text-6xl">📊</span>
-                                    <p class="text-xl font-bold mt-4">Analytics Dashboard</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
-                                <a href="#" class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">Live Demo</a>
-                                <a href="#" class="px-6 py-3 border border-white text-white rounded-full font-medium text-sm hover:bg-white/10 transition-colors">GitHub</a>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-2">DataViz Pro</h3>
-                            <p class="text-gray-400 mb-4">Real-time analytics dashboard with interactive charts, customizable widgets, and automated reporting.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">React</span>
-                                <span class="px-3 py-1 bg-green-500/10 text-green-300 rounded-full text-xs">D3.js</span>
-                                <span class="px-3 py-1 bg-yellow-500/10 text-yellow-300 rounded-full text-xs">WebSocket</span>
-                                <span class="px-3 py-1 bg-red-500/10 text-red-300 rounded-full text-xs">Redux</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.3">
-                        <div class="relative h-64 overflow-hidden">
-                            <div class="project-img w-full h-full bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 flex items-center justify-center">
-                                <div class="text-center">
-                                    <span class="text-6xl">🎨</span>
-                                    <p class="text-xl font-bold mt-4">Design System</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
-                                <a href="#" class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">Live Demo</a>
-                                <a href="#" class="px-6 py-3 border border-white text-white rounded-full font-medium text-sm hover:bg-white/10 transition-colors">GitHub</a>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-2">Prism UI</h3>
-                            <p class="text-gray-400 mb-4">A comprehensive design system with 50+ accessible components, dark mode support, and full documentation.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-emerald-500/10 text-emerald-300 rounded-full text-xs">Storybook</span>
-                                <span class="px-3 py-1 bg-teal-500/10 text-teal-300 rounded-full text-xs">Radix UI</span>
-                                <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">TypeScript</span>
-                                <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded-full text-xs">Figma</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.4">
-                        <div class="relative h-64 overflow-hidden">
-                            <div class="project-img w-full h-full bg-gradient-to-br from-rose-600 via-pink-600 to-purple-600 flex items-center justify-center">
-                                <div class="text-center">
-                                    <span class="text-6xl">🎵</span>
-                                    <p class="text-xl font-bold mt-4">Music Streaming App</p>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
-                                <a href="#" class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">Live Demo</a>
-                                <a href="#" class="px-6 py-3 border border-white text-white rounded-full font-medium text-sm hover:bg-white/10 transition-colors">GitHub</a>
-                            </div>
-                        </div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-2">SoundWave</h3>
-                            <p class="text-gray-400 mb-4">A Spotify-like music streaming application with audio visualizer, social features, and personalized playlists.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-rose-500/10 text-rose-300 rounded-full text-xs">React</span>
-                                <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">Web Audio API</span>
-                                <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">Framer Motion</span>
-                                <span class="px-3 py-1 bg-amber-500/10 text-amber-300 rounded-full text-xs">Zustand</span>
+                        <div class="reveal-right">
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                I'm a passionate UI Developer with <span class="text-indigo-400 font-semibold">4+
+                                    years</span> of experience building modern, highly accessible web applications. I
+                                bridge
+                                the gap between user experience design and clean, modular frontend code.
+                            </p>
+                            <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                                My expertise is centered on React.js, JavaScript (ES6+), HTML5, CSS3, Material UI (MUI),
+                                and
+                                Tailwind CSS. I have successfully built and optimized interfaces for government portals,
+                                e-commerce, HRMS, and LMS platforms while adhering strictly to WCAG 2.1 and GIGW
+                                compliance
+                                standards.
+                            </p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-4 py-2 glass-card rounded-full text-sm text-indigo-300">React &
+                                    MUI</span>
+                                <span class="px-4 py-2 glass-card rounded-full text-sm text-purple-300">WCAG & GIGW
+                                    Compliance</span>
+                                <span class="px-4 py-2 glass-card rounded-full text-sm text-pink-300">STQC Audits</span>
+                                <span class="px-4 py-2 glass-card rounded-full text-sm text-cyan-300">Responsive
+                                    Design</span>
+                                <span class="px-4 py-2 glass-card rounded-full text-sm text-green-300">Collaborative
+                                    Partner</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="py-32 relative">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="reveal mb-16 text-center">
-                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">MY JOURNEY</p>
-                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Work <span class="gradient-text">Experience</span></h2>
-                </div>
-
-                <div class="max-w-3xl mx-auto space-y-12">
-                    <div class="reveal glass-card rounded-2xl p-8 relative">
-                        <div class="absolute -left-3 top-8 w-6 h-6 rounded-full bg-indigo-500 border-4 border-gray-900 hidden md:block"></div>
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">Senior UI Developer</h3>
-                                <p class="text-indigo-400">TechCorp Inc.</p>
-                            </div>
-                            <span class="text-sm text-gray-500 mt-2 md:mt-0">2022 - Present</span>
-                        </div>
-                        <p class="text-gray-400 leading-relaxed">Led the frontend architecture for a SaaS platform serving 100K+ users. Implemented design system, improved performance by 40%, and mentored junior developers.</p>
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full text-xs">React</span>
-                            <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">TypeScript</span>
-                            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">Next.js</span>
-                        </div>
+            <!-- Skills Section -->
+            <section id="skills" class="py-32 relative">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="reveal mb-16 text-center">
+                        <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">WHAT I DO</p>
+                        <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">My <span
+                                class="gradient-text">Skills</span></h2>
                     </div>
 
-                    <div class="reveal glass-card rounded-2xl p-8 relative" data-delay="0.2">
-                        <div class="absolute -left-3 top-8 w-6 h-6 rounded-full bg-purple-500 border-4 border-gray-900 hidden md:block"></div>
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">UI Developer</h3>
-                                <p class="text-purple-400">Digital Agency Co.</p>
-                            </div>
-                            <span class="text-sm text-gray-500 mt-2 md:mt-0">2020 - 2022</span>
-                        </div>
-                        <p class="text-gray-400 leading-relaxed">Built responsive web applications for enterprise clients. Created reusable component libraries and collaborated closely with UX designers to deliver pixel-perfect implementations.</p>
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">Vue.js</span>
-                            <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">SCSS</span>
-                            <span class="px-3 py-1 bg-green-500/10 text-green-300 rounded-full text-xs">Storybook</span>
-                        </div>
-                    </div>
-
-                    <div class="reveal glass-card rounded-2xl p-8 relative" data-delay="0.4">
-                        <div class="absolute -left-3 top-8 w-6 h-6 rounded-full bg-pink-500 border-4 border-gray-900 hidden md:block"></div>
-                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold">Frontend Developer</h3>
-                                <p class="text-pink-400">Startup Ventures</p>
-                            </div>
-                            <span class="text-sm text-gray-500 mt-2 md:mt-0">2019 - 2020</span>
-                        </div>
-                        <p class="text-gray-400 leading-relaxed">Developed MVPs for multiple startup products. Gained deep expertise in React ecosystem and modern CSS techniques. Implemented CI/CD pipelines and testing strategies.</p>
-                        <div class="flex flex-wrap gap-2 mt-4">
-                            <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">React</span>
-                            <span class="px-3 py-1 bg-amber-500/10 text-amber-300 rounded-full text-xs">Styled Components</span>
-                            <span class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">Jest</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials -->
-        <section class="py-32 relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="reveal mb-16 text-center">
-                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">WHAT THEY SAY</p>
-                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Client <span class="gradient-text">Reviews</span></h2>
-                </div>
-                <div class="grid md:grid-cols-3 gap-6 stagger-children" id="testimonialsGrid">
-                    <div class="glass-card rounded-2xl p-8">
-                        <div class="flex items-center gap-1 mb-4">
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                        </div>
-                        <p class="text-gray-300 mb-6 italic">"Alex transformed our outdated platform into a modern, blazing-fast application. The attention to detail and code quality was exceptional."</p>
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-sm font-bold">SJ</div>
-                            <div>
-                                <p class="font-semibold text-sm">Sarah Johnson</p>
-                                <p class="text-xs text-gray-500">CTO, TechStart</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="glass-card rounded-2xl p-8">
-                        <div class="flex items-center gap-1 mb-4">
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                        </div>
-                        <p class="text-gray-300 mb-6 italic">"Working with Alex was a game-changer. Our conversion rates improved by 35% after the UI redesign. Highly recommend!"</p>
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-sm font-bold">MK</div>
-                            <div>
-                                <p class="font-semibold text-sm">Michael Kim</p>
-                                <p class="text-xs text-gray-500">Founder, GrowthLabs</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="glass-card rounded-2xl p-8">
-                        <div class="flex items-center gap-1 mb-4">
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                            <span class="text-yellow-400">★</span>
-                        </div>
-                        <p class="text-gray-300 mb-6 italic">"The design system Alex built for us saved our team hundreds of hours. The component library is incredibly well-documented and easy to use."</p>
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-sm font-bold">EP</div>
-                            <div>
-                                <p class="font-semibold text-sm">Emily Park</p>
-                                <p class="text-xs text-gray-500">Design Lead, InnovateCo</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-32 relative">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="reveal mb-16 text-center">
-                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">GET IN TOUCH</p>
-                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Let's <span class="gradient-text">Connect</span></h2>
-                </div>
-                <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                    <div class="reveal-left">
-                        <h3 class="text-2xl font-bold mb-6">Have a project in mind?</h3>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                            I'm always open to new opportunities and interesting projects. Whether you need a complete frontend solution or want to collaborate on something creative, let's talk!
-                        </p>
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Email</p>
-                                    <p class="text-white">alex.chen@email.com</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Location</p>
-                                    <p class="text-white">San Francisco, CA</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-gray-500">Availability</p>
-                                    <p class="text-green-400">Open for freelance</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Social Links -->
-                        <div class="flex gap-4 mt-10">
-                            <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            </a>
-                            <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                            </a>
-                            <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
-                            </a>
-                            <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
-                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="reveal-right">
-                        <form class="space-y-6" id="contactForm">
-                            <div>
-                                <input type="text" placeholder="Your Name" class="form-input" required>
-                            </div>
-                            <div>
-                                <input type="email" placeholder="Your Email" class="form-input" required>
-                            </div>
-                            <div>
-                                <input type="text" placeholder="Subject" class="form-input">
-                            </div>
-                            <div>
-                                <textarea placeholder="Your Message" class="form-input min-h-[150px] resize-none" required></textarea>
-                            </div>
-                            <button type="submit" class="magnetic-btn w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
-                                <span>Send Message</span>
-                                <svg class="w-5 h-5 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children" id="skillsGrid">
+                        <div class="glass-card rounded-2xl p-8 tilt-card">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-6">
+                                <svg class="w-7 h-7 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.07-.999.07-.999-11.97.003.698 7.994h8.364l-.35 3.494-3.243.924-3.267-.924-.175-2.01H6.22l.386 4.2 6.387 1.832 6.394-1.832.824-9.968H8.531z" />
                                 </svg>
-                            </button>
-                        </form>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Frontend Core</h3>
+                            <p class="text-gray-400 text-sm mb-4">HTML5, CSS3, JavaScript (ES6+), TypeScript, Sass,
+                                Bootstrap</p>
+                            <div class="skill-bar mb-2">
+                                <div class="skill-fill" style="width: 95%"></div>
+                            </div>
+                            <span class="text-xs text-gray-500">95% Proficiency</span>
+                        </div>
+
+                        <div class="glass-card rounded-2xl p-8 tilt-card">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-6">
+                                <svg class="w-7 h-7 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
+                                    <circle cx="12" cy="12" r="2.139" />
+                                    <path
+                                        d="M12 5.561c4.498 0 8.556.182 11.375 1.313 1.593.639 2.347 1.398 2.347 2.127 0 .727-.754 1.487-2.347 2.126C20.556 12.258 16.498 12.44 12 12.44s-8.556-.182-11.375-1.314C-.593 10.487-1.347 9.727-1.347 9c0-.728.754-1.488 2.347-2.127C3.444 5.743 7.502 5.56 12 5.561zM12 0C6.477 0 2 4.477 2 10h10V0z"
+                                        transform="translate(0, 2)" opacity="0" />
+                                    <ellipse cx="12" cy="12" rx="10.5" ry="4.5" fill="none" stroke="currentColor"
+                                        stroke-width="1.5" transform="rotate(0, 12, 12)" />
+                                    <ellipse cx="12" cy="12" rx="10.5" ry="4.5" fill="none" stroke="currentColor"
+                                        stroke-width="1.5" transform="rotate(60, 12, 12)" />
+                                    <ellipse cx="12" cy="12" rx="10.5" ry="4.5" fill="none" stroke="currentColor"
+                                        stroke-width="1.5" transform="rotate(120, 12, 12)" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">React Ecosystem</h3>
+                            <p class="text-gray-400 text-sm mb-4">React.js, Component-Based Architecture, REST API
+                                Integration</p>
+                            <div class="skill-bar mb-2">
+                                <div class="skill-fill" style="width: 92%"></div>
+                            </div>
+                            <span class="text-xs text-gray-500">92% Proficiency</span>
+                        </div>
+
+                        <div class="glass-card rounded-2xl p-8 tilt-card">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-6">
+                                <svg class="w-7 h-7 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">UI & Styling</h3>
+                            <p class="text-gray-400 text-sm mb-4">Material UI (MUI), Tailwind CSS, Responsive Web Design
+                            </p>
+                            <div class="skill-bar mb-2">
+                                <div class="skill-fill" style="width: 94%"></div>
+                            </div>
+                            <span class="text-xs text-gray-500">94% Proficiency</span>
+                        </div>
+
+                        <div class="glass-card rounded-2xl p-8 tilt-card">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mb-6">
+                                <svg class="w-7 h-7 text-green-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Accessibility & Audit</h3>
+                            <p class="text-gray-400 text-sm mb-4">WCAG 2.1 Guidelines, GIGW Compliance, STQC Audit</p>
+                            <div class="skill-bar mb-2">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                            <span class="text-xs text-gray-500">90% Proficiency</span>
+                        </div>
+
+                        <div class="glass-card rounded-2xl p-8 tilt-card">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 flex items-center justify-center mb-6">
+                                <svg class="w-7 h-7 text-orange-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Tools & CMS</h3>
+                            <p class="text-gray-400 text-sm mb-4">WordPress, Figma, Git & GitHub, VS Code, Sublime Text
+                            </p>
+                            <div class="skill-bar mb-2">
+                                <div class="skill-fill" style="width: 88%"></div>
+                            </div>
+                            <span class="text-xs text-gray-500">88% Proficiency</span>
+                        </div>
+
+                        <div class="glass-card rounded-2xl p-8 tilt-card">
+                            <div
+                                class="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500/20 to-rose-500/20 flex items-center justify-center mb-6">
+                                <svg class="w-7 h-7 text-pink-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Workflow & Quality</h3>
+                            <p class="text-gray-400 text-sm mb-4">Agile/Scrum, CI/CD, Containerization, Cross-Browser
+                                Testing</p>
+                            <div class="skill-bar mb-2">
+                                <div class="skill-fill" style="width: 86%"></div>
+                            </div>
+                            <span class="text-xs text-gray-500">86% Proficiency</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="py-32 relative">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="reveal mb-16 text-center">
+                        <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">MY WORK</p>
+                        <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Featured <span
+                                class="gradient-text">Projects</span></h2>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Project 1 -->
+                        <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.1">
+                            <div class="relative h-64 overflow-hidden">
+                                <div
+                                    class="project-img w-full h-full bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <span class="text-6xl">🖼️</span>
+                                        <p class="text-xl font-bold mt-4">ImagesBazaar Portal</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
+                                    <a href="#"
+                                        class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">Commercial
+                                        Site</a>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold mb-2">ImagesBazaar</h3>
+                                <p class="text-gray-400 mb-4">Developed and maintained scalable front-end modules for
+                                    India's largest Indian stock image and video library, optimizing image search page
+                                    responsiveness.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full text-xs">React.js</span>
+                                    <span
+                                        class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">Bootstrap</span>
+                                    <span
+                                        class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">HTML5/CSS3</span>
+                                    <span
+                                        class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.2">
+                            <div class="relative h-64 overflow-hidden">
+                                <div
+                                    class="project-img w-full h-full bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <span class="text-6xl">🎓</span>
+                                        <p class="text-xl font-bold mt-4">Congrea Virtual Classroom</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
+                                    <a href="#"
+                                        class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">LMS
+                                        Integration</a>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold mb-2">Congrea & DIY Web App</h3>
+                                <p class="text-gray-400 mb-4">Built complete interactive UI for Congrea virtual
+                                    classroom
+                                    (Moodle LMS plugin), including Whiteboard, Screen Sharing, video streams, and led
+                                    DIY
+                                    Web App team.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">JavaScript</span>
+                                    <span
+                                        class="px-3 py-1 bg-green-500/10 text-green-300 rounded-full text-xs">HTML5/CSS3</span>
+                                    <span
+                                        class="px-3 py-1 bg-yellow-500/10 text-yellow-300 rounded-full text-xs">WordPress</span>
+                                    <span class="px-3 py-1 bg-red-500/10 text-red-300 rounded-full text-xs">Team
+                                        Lead</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.3">
+                            <div class="relative h-64 overflow-hidden">
+                                <div
+                                    class="project-img w-full h-full bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <span class="text-6xl">🏛️</span>
+                                        <p class="text-xl font-bold mt-4">E-Office & HRMS Portals</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
+                                    <a href="#"
+                                        class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">Govt
+                                        Applications</a>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold mb-2">E-Office & HRMS Modules</h3>
+                                <p class="text-gray-400 mb-4">Designed and developed responsive, accessible UI modules
+                                    for
+                                    government applications using React.js and Material UI (MUI), ensuring full GIGW &
+                                    WCAG
+                                    2.1 compliance.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-emerald-500/10 text-emerald-300 rounded-full text-xs">React.js</span>
+                                    <span class="px-3 py-1 bg-teal-500/10 text-teal-300 rounded-full text-xs">Material
+                                        UI
+                                        (MUI)</span>
+                                    <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">GIGW
+                                        Compliance</span>
+                                    <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded-full text-xs">WCAG
+                                        2.1
+                                        A11y</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.4">
+                            <div class="relative h-64 overflow-hidden">
+                                <div
+                                    class="project-img w-full h-full bg-gradient-to-br from-rose-600 via-pink-600 to-purple-600 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <span class="text-6xl">🖨️</span>
+                                        <p class="text-xl font-bold mt-4">Pay4Print Platform</p>
+                                    </div>
+                                </div>
+                                <div
+                                    class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
+                                    <a href="#"
+                                        class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">Commercial
+                                        Site</a>
+                                </div>
+                            </div>
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold mb-2">Pay4Print</h3>
+                                <p class="text-gray-400 mb-4">Upgraded and maintained commercial print platform design
+                                    components, ensuring pixel-perfect responsive layouts and cross-browser
+                                    compatibility.
+                                </p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-rose-500/10 text-rose-300 rounded-full text-xs">React.js</span>
+                                    <span
+                                        class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">HTML5/CSS3</span>
+                                    <span
+                                        class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">Bootstrap</span>
+                                    <span
+                                        class="px-3 py-1 bg-amber-500/10 text-amber-300 rounded-full text-xs">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="py-32 relative">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="reveal mb-16 text-center">
+                        <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">MY JOURNEY</p>
+                        <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Work <span
+                                class="gradient-text">Experience</span></h2>
+                    </div>
+
+                    <div class="max-w-3xl mx-auto space-y-12">
+                        <div class="reveal glass-card rounded-2xl p-8 relative">
+                            <div
+                                class="absolute -left-3 top-8 w-6 h-6 rounded-full bg-indigo-500 border-4 border-gray-900 hidden md:block">
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold">UI Developer</h3>
+                                    <p class="text-indigo-400">EchtTech Consultancy Services Pvt. Ltd. | Greater Noida,
+                                        U.P.
+                                    </p>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-2 md:mt-0">Aug 2024 - Present</span>
+                            </div>
+                            <p class="text-gray-400 leading-relaxed mb-2">Building front-end modules for government and
+                                enterprise web applications like E-Office, HRMS, CPPRI, NTPS, UKPSC, and SAKSHAM (LMIS):
+                            </p>
+                            <ul class="list-disc pl-5 text-gray-400 space-y-1 text-sm">
+                                <li>Designed and developed responsive, accessible UI for E-Office and HRMS applications
+                                    using React.js and Material UI (MUI).</li>
+                                <li>Built 6+ government websites following GIGW (Guidelines for Indian Government
+                                    Websites)
+                                    for compliance, accessibility, and usability.</li>
+                                <li>Contributed to WCAG 2.1 compliance; supported STQC accessibility audit for 4+
+                                    government
+                                    web portals.</li>
+                                <li>Collaborated in Agile/Scrum sprints with UI/UX designers, back-end engineers, and
+                                    stakeholders to deliver modular UI on schedule.</li>
+                            </ul>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span
+                                    class="px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full text-xs">React.js</span>
+                                <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">Material
+                                    UI
+                                    (MUI)</span>
+                                <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">GIGW & WCAG
+                                    A11y</span>
+                                <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">Figma</span>
+                            </div>
+                        </div>
+
+                        <div class="reveal glass-card rounded-2xl p-8 relative" data-delay="0.2">
+                            <div
+                                class="absolute -left-3 top-8 w-6 h-6 rounded-full bg-purple-500 border-4 border-gray-900 hidden md:block">
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold">UI Developer</h3>
+                                    <p class="text-purple-400">CS TechInfoSolution</p>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-2 md:mt-0">Nov 2021 - May 2023</span>
+                            </div>
+                            <p class="text-gray-400 leading-relaxed mb-2">Worked on high-traffic commercial platforms
+                                like
+                                ImagesBazaar (India's largest stock image library) and Pay4Print:</p>
+                            <ul class="list-disc pl-5 text-gray-400 space-y-1 text-sm">
+                                <li>Developed and maintained scalable front-end modules for ImagesBazaar, an e-commerce
+                                    platform.</li>
+                                <li>Designed and implemented front-end CI/CD pipelines and containerization strategies,
+                                    improving deployment efficiency.</li>
+                                <li>Improved UI/UX consistency across product pages, resulting in a cohesive user
+                                    experience.</li>
+                                <li>Upgraded and maintained Pay4Print design components, ensuring responsive layouts.
+                                </li>
+                            </ul>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span
+                                    class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">React.js</span>
+                                <span
+                                    class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">HTML5/CSS3</span>
+                                <span
+                                    class="px-3 py-1 bg-green-500/10 text-green-300 rounded-full text-xs">Bootstrap</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">JavaScript</span>
+                            </div>
+                        </div>
+
+                        <div class="reveal glass-card rounded-2xl p-8 relative" data-delay="0.4">
+                            <div
+                                class="absolute -left-3 top-8 w-6 h-6 rounded-full bg-pink-500 border-4 border-gray-900 hidden md:block">
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <div>
+                                    <h3 class="text-xl font-bold">Web Designer / Front-End Developer</h3>
+                                    <p class="text-pink-400">Vidya Mantra EduSystem Pvt. Ltd.</p>
+                                </div>
+                                <span class="text-sm text-gray-500 mt-2 md:mt-0">Dec 2019 - Jul 2021</span>
+                            </div>
+                            <p class="text-gray-400 leading-relaxed mb-2">Contributed to Congrea, a virtual classroom
+                                platform integrated with Moodle LMS, used by universities and enterprises for online
+                                learning:</p>
+                            <ul class="list-disc pl-5 text-gray-400 space-y-1 text-sm">
+                                <li>Built complete interactive UI for Congrea virtual classroom, including Whiteboard,
+                                    Screen Sharing, Polls, and video streams.</li>
+                                <li>Developed quiz modules, presenter/attendee video streams, and session recording
+                                    features.</li>
+                                <li>Led front-end development as team lead for DIY Web App, managing a team of 5
+                                    developers.
+                                </li>
+                            </ul>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span
+                                    class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">JavaScript</span>
+                                <span
+                                    class="px-3 py-1 bg-amber-500/10 text-amber-300 rounded-full text-xs">WordPress</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">HTML5/CSS3</span>
+                                <span class="px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full text-xs">Team
+                                    Lead</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Education & Achievements Section -->
+            <section id="education-achievements" class="py-32 relative">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="grid lg:grid-cols-2 gap-16">
+                        <!-- Left: Education -->
+                        <div class="reveal-left">
+                            <div class="mb-12">
+                                <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">QUALIFICATIONS</p>
+                                <h2 class="text-4xl md:text-5xl font-bold font-['Space_Grotesk']">My <span
+                                        class="gradient-text">Education</span></h2>
+                            </div>
+                            <div class="space-y-8">
+                                <!-- Card 1 -->
+                                <div class="glass-card rounded-2xl p-6 border-l-4 border-indigo-500">
+                                    <span class="text-xs text-indigo-300 font-semibold uppercase tracking-wider">B.Tech
+                                        in
+                                        Computer Science</span>
+                                    <h3 class="text-lg font-bold text-white mt-1">IIMT College of Engineering</h3>
+                                    <p class="text-sm text-gray-400 mt-1">Greater Noida, U.P. | Graduation Year: 2016
+                                    </p>
+                                </div>
+                                <!-- Card 2 -->
+                                <div class="glass-card rounded-2xl p-6 border-l-4 border-purple-500">
+                                    <span class="text-xs text-purple-300 font-semibold uppercase tracking-wider">Diploma
+                                        (Polytechnic) - Computer Science</span>
+                                    <h3 class="text-lg font-bold text-white mt-1">IIMT Group of College</h3>
+                                    <p class="text-sm text-gray-400 mt-1">Agra, U.P. | Graduation Year: 2012</p>
+                                </div>
+                                <!-- Card 3 -->
+                                <div class="glass-card rounded-2xl p-6 border-l-4 border-pink-500">
+                                    <span class="text-xs text-pink-300 font-semibold uppercase tracking-wider">High
+                                        School</span>
+                                    <h3 class="text-lg font-bold text-white mt-1">Greater Noida</h3>
+                                    <p class="text-sm text-gray-400 mt-1">Passing Year: 2009</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Achievements -->
+                        <div class="reveal-right">
+                            <div class="mb-12">
+                                <p class="text-purple-400 font-medium mb-2 tracking-wider text-sm">RECOGNITIONS</p>
+                                <h2 class="text-4xl md:text-5xl font-bold font-['Space_Grotesk']">Achievements & <span
+                                        class="gradient-text-2">Awards</span></h2>
+                            </div>
+                            <div class="space-y-8">
+                                <!-- Card 1 -->
+                                <div
+                                    class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-indigo-500/30 transition-all duration-300">
+                                    <div
+                                        class="absolute -right-4 -bottom-4 text-7xl opacity-5 group-hover:opacity-10 transition-opacity">
+                                        🏆</div>
+                                    <span
+                                        class="text-xs text-indigo-300 font-semibold uppercase tracking-wider">Employee
+                                        of
+                                        the Month</span>
+                                    <h3 class="text-lg font-bold text-white mt-1">Frontend Designer</h3>
+                                    <p class="text-sm text-gray-400 mt-1">Vidya Mantra EduSystem | Aug 2020</p>
+                                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Delivered landing pages ahead
+                                        of
+                                        deadline with fewer than 5 bugs in UAT, exceeding performance expectations.</p>
+                                </div>
+                                <!-- Card 2 -->
+                                <div
+                                    class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-purple-500/30 transition-all duration-300">
+                                    <div
+                                        class="absolute -right-4 -bottom-4 text-7xl opacity-5 group-hover:opacity-10 transition-opacity">
+                                        👥</div>
+                                    <span class="text-xs text-purple-300 font-semibold uppercase tracking-wider">Best
+                                        Team
+                                        Award</span>
+                                    <h3 class="text-lg font-bold text-white mt-1">Team Lead - DIY Web App</h3>
+                                    <p class="text-sm text-gray-400 mt-1">Vidya Mantra EduSystem | Feb 2021</p>
+                                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Led a front-end team of 5
+                                        developers to deliver the DIY Web App for Online Classroom ahead of project
+                                        timeline.</p>
+                                </div>
+                                <!-- Card 3 -->
+                                <div
+                                    class="glass-card rounded-2xl p-6 relative overflow-hidden group hover:border-pink-500/30 transition-all duration-300">
+                                    <div
+                                        class="absolute -right-4 -bottom-4 text-7xl opacity-5 group-hover:opacity-10 transition-opacity">
+                                        🎮</div>
+                                    <span class="text-xs text-pink-300 font-semibold uppercase tracking-wider">Fun Game
+                                        Winner</span>
+                                    <h3 class="text-lg font-bold text-white mt-1">3rd Prize</h3>
+                                    <p class="text-sm text-gray-400 mt-1">Vidya Mantra Company Event | Jul 2021</p>
+                                    <p class="text-xs text-gray-500 mt-2 leading-relaxed">Competed and won among 20+
+                                        participating teams during the annual company-wide event.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section-divider"></div>
+
+            <!-- Testimonials -->
+            <section class="py-32 relative overflow-hidden">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="reveal mb-16 text-center">
+                        <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">WHAT THEY SAY</p>
+                        <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Client <span
+                                class="gradient-text">Reviews</span></h2>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6 stagger-children" id="testimonialsGrid">
+                        <div class="glass-card rounded-2xl p-8">
+                            <div class="flex items-center gap-1 mb-4">
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                            </div>
+                            <p class="text-gray-300 mb-6 italic">"Rohit was instrumental in bringing our E-Office and
+                                HRMS
+                                portals to full compliance. His expertise in GIGW guidelines and STQC accessibility
+                                audits
+                                is outstanding."</p>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-sm font-bold">
+                                    SS</div>
+                                <div>
+                                    <p class="font-semibold text-sm">S. K. Sharma</p>
+                                    <p class="text-xs text-gray-500">Project Director, Govt Portals</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-8">
+                            <div class="flex items-center gap-1 mb-4">
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                            </div>
+                            <p class="text-gray-300 mb-6 italic">"Working with Rohit on ImagesBazaar was a game-changer.
+                                He
+                                built highly optimized and scalable React components that handle our stock library
+                                perfectly."</p>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-sm font-bold">
+                                    AV</div>
+                                <div>
+                                    <p class="font-semibold text-sm">Amit Verma</p>
+                                    <p class="text-xs text-gray-500">Tech Lead, CS TechInfoSolution</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card rounded-2xl p-8">
+                            <div class="flex items-center gap-1 mb-4">
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                                <span class="text-yellow-400">★</span>
+                            </div>
+                            <p class="text-gray-300 mb-6 italic">"Rohit led the DIY Web App development and delivered it
+                                ahead of schedule. The virtual classroom UI is incredibly clean, accessible, and
+                                user-friendly."</p>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-sm font-bold">
+                                    PS</div>
+                                <div>
+                                    <p class="font-semibold text-sm">Preeti Sen</p>
+                                    <p class="text-xs text-gray-500">Product Manager, Vidya Mantra EduSystem</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="py-32 relative">
+                <div class="max-w-7xl mx-auto px-6">
+                    <div class="reveal mb-16 text-center">
+                        <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">GET IN TOUCH</p>
+                        <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Let's <span
+                                class="gradient-text">Connect</span></h2>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                        <div class="reveal-left">
+                            <h3 class="text-2xl font-bold mb-6">Have a project in mind?</h3>
+                            <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                                I'm always open to new opportunities and interesting projects. Whether you need a
+                                complete
+                                frontend solution or want to collaborate on something creative, let's talk!
+                            </p>
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500">Email</p>
+                                        <p class="text-white">rohitsharmag5555@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500">Phone</p>
+                                        <p class="text-white">+91-9953497117</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500">Location</p>
+                                        <p class="text-white">Greater Noida, U.P.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-500">Availability</p>
+                                        <p class="text-green-400">Open for freelance</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Social Links -->
+                            <div class="flex gap-4 mt-10">
+                                <a href="#" aria-label="GitHub Profile"
+                                    class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                                <a href="https://linkedin.com/in/rohitsharma" target="_blank" rel="noopener noreferrer"
+                                    aria-label="LinkedIn Profile"
+                                    class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0h.003z" />
+                                    </svg>
+                                </a>
+                                <a href="#" aria-label="Twitter Profile"
+                                    class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                                    </svg>
+                                </a>
+                                <a href="#" aria-label="Portfolio Hub"
+                                    class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="reveal-right">
+                            <form class="space-y-6" id="contactForm">
+                                <div>
+                                    <input type="text" placeholder="Your Name" aria-label="Your Name" class="form-input"
+                                        required>
+                                </div>
+                                <div>
+                                    <input type="email" placeholder="Your Email" aria-label="Your Email"
+                                        class="form-input" required>
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="Subject" aria-label="Subject" class="form-input">
+                                </div>
+                                <div>
+                                    <textarea placeholder="Your Message" aria-label="Your Message"
+                                        class="form-input min-h-[150px] resize-none" required></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="magnetic-btn w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+                                    <span>Send Message</span>
+                                    <svg class="w-5 h-5 inline-block ml-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
 
         <!-- Footer -->
         <footer class="py-12 border-t border-white/5">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
-                        <a href="#" class="text-2xl font-bold font-['Space_Grotesk'] gradient-text">R.S</a>
+                        <a href="#" class="flex items-center group">
+                            <img src="logo.svg" alt="Rohit Sharma Logo"
+                                class="h-12 w-auto transition-transform duration-300 group-hover:scale-110">
+                        </a>
                         <p class="text-gray-500 text-sm mt-2">Crafting digital experiences with passion</p>
                     </div>
-                    <p class="text-gray-500 text-sm">© 2024 Rohit Sharma. All rights reserved.</p>
+                    <p class="text-gray-500 text-sm">© 2026 Rohit Sharma. All rights reserved.</p>
                     <div class="flex gap-6">
                         <a href="#" class="text-gray-500 hover:text-indigo-400 transition-colors text-sm">Privacy</a>
                         <a href="#" class="text-gray-500 hover:text-indigo-400 transition-colors text-sm">Terms</a>
@@ -1190,7 +2607,7 @@
 
         // Create wireframe geometries
         const geometries = [];
-        
+
         // Icosahedron
         const ico = new THREE.Mesh(
             new THREE.IcosahedronGeometry(1.5, 1),
@@ -1230,6 +2647,11 @@
 
         function animate() {
             requestAnimationFrame(animate);
+
+            if (document.body.classList.contains('a11y-animations-active')) {
+                renderer.render(scene, camera);
+                return;
+            }
 
             particlesMesh.rotation.x += 0.0003;
             particlesMesh.rotation.y += 0.0005;
@@ -1272,8 +2694,13 @@
         });
 
         function animateCursor() {
-            followerX += (cursorX - followerX) * 0.1;
-            followerY += (cursorY - followerY) * 0.1;
+            if (document.body.classList.contains('a11y-animations-active')) {
+                followerX = cursorX;
+                followerY = cursorY;
+            } else {
+                followerX += (cursorX - followerX) * 0.1;
+                followerY += (cursorY - followerY) * 0.1;
+            }
             cursorFollower.style.left = followerX + 'px';
             cursorFollower.style.top = followerY + 'px';
             requestAnimationFrame(animateCursor);
@@ -1295,15 +2722,20 @@
         });
 
         // Typing Animation
-        const typingTexts = ['UI Developer', 'Frontend Engineer', 'React Specialist', 'Design System Architect', 'Creative Coder'];
+        const typingTexts = ['UI Developer', 'Web Designer', 'React Developer', 'Accessibility Specialist', 'GIGW Compliance Expert'];
         let textIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
         const typingElement = document.getElementById('typingText');
 
         function type() {
+            if (document.body.classList.contains('a11y-animations-active')) {
+                typingElement.textContent = typingTexts[0];
+                setTimeout(type, 1000);
+                return;
+            }
             const currentText = typingTexts[textIndex];
-            
+
             if (isDeleting) {
                 typingElement.textContent = currentText.substring(0, charIndex - 1);
                 charIndex--;
@@ -1337,7 +2769,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    
+
                     // Animate skill bars
                     entry.target.querySelectorAll('.skill-fill').forEach(bar => {
                         bar.classList.add('active');
@@ -1357,15 +2789,19 @@
                     const counters = entry.target.querySelectorAll('.counter');
                     counters.forEach(counter => {
                         const target = parseInt(counter.dataset.target);
+                        if (document.body.classList.contains('a11y-animations-active')) {
+                            counter.textContent = target;
+                            return;
+                        }
                         const duration = 2000;
                         const start = performance.now();
-                        
+
                         function updateCounter(currentTime) {
                             const elapsed = currentTime - start;
                             const progress = Math.min(elapsed / duration, 1);
                             const easeOut = 1 - Math.pow(1 - progress, 3);
                             counter.textContent = Math.floor(easeOut * target);
-                            
+
                             if (progress < 1) {
                                 requestAnimationFrame(updateCounter);
                             }
@@ -1386,14 +2822,16 @@
         // Mobile Menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', !isHidden);
         });
 
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             });
         });
 
@@ -1402,13 +2840,13 @@
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             const currentScroll = window.pageYOffset;
-            
+
             if (currentScroll > 100) {
                 navbar.style.background = 'rgba(10, 10, 15, 0.8)';
             } else {
                 navbar.style.background = 'rgba(255, 255, 255, 0.03)';
             }
-            
+
             if (currentScroll > lastScroll && currentScroll > 200) {
                 navbar.style.transform = 'translateY(-100%)';
             } else {
@@ -1428,10 +2866,10 @@
                 const centerY = rect.height / 2;
                 const rotateX = (y - centerY) / 10;
                 const rotateY = (centerX - x) / 10;
-                
+
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
-            
+
             card.addEventListener('mouseleave', () => {
                 card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
             });
@@ -1444,7 +2882,7 @@
             const originalText = btn.innerHTML;
             btn.innerHTML = '<span>Message Sent! ✓</span>';
             btn.style.background = 'linear-gradient(to right, #10b981, #059669)';
-            
+
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.style.background = '';
@@ -1454,7 +2892,7 @@
 
         // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
@@ -1468,12 +2906,529 @@
 
         // Parallax on scroll for shapes
         window.addEventListener('scroll', () => {
+            if (document.body.classList.contains('a11y-animations-active')) return;
             const scrolled = window.pageYOffset;
             document.querySelectorAll('.shape').forEach((shape, i) => {
                 const speed = (i + 1) * 0.05;
                 shape.style.transform = `translateY(${scrolled * speed}px)`;
             });
         });
+
+        // --- CORE ACCESSIBILITY TOOLBAR LOGIC ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Initial State Definition
+            const defaultState = {
+                fontScale: 1.0, // 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5
+                spacing: false,
+                theme: 'default', // 'default', 'light', 'contrast', 'grayscale'
+                dyslexia: false,
+                links: false,
+                headings: false,
+                cursor: false,
+                guide: false,
+                mask: false,
+                animations: false,
+                images: false,
+                focusHighlight: false,
+                panelExpanded: false
+            };
+
+            let state = { ...defaultState };
+
+            // Load from localStorage
+            const savedState = localStorage.getItem('rohit_a11y_settings');
+            if (savedState) {
+                try {
+                    state = { ...defaultState, ...JSON.parse(savedState) };
+                } catch (e) {
+                    console.error('Failed to parse a11y settings', e);
+                }
+            } else {
+                // Check system preferences initially
+                const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+                if (prefersLight) {
+                    state.theme = 'light';
+                }
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (prefersReducedMotion) {
+                    state.animations = true;
+                }
+            }
+
+            // Force panel to be closed on load regardless of saved state
+            state.panelExpanded = false;
+
+            // Elements
+            const body = document.body;
+            const html = document.documentElement;
+            const toolbar = document.getElementById('a11y-toolbar');
+            const panel = document.getElementById('a11y-panel');
+            const togglePanelBtn = document.getElementById('a11y-toggle-panel');
+            const readingGuide = document.getElementById('a11y-reading-guide');
+            const readingMask = document.getElementById('a11y-reading-mask');
+            const modal = document.getElementById('a11y-modal');
+
+            // Quick Actions
+            const quickDecBtn = document.getElementById('a11y-quick-font-dec');
+            const quickIncBtn = document.getElementById('a11y-quick-font-inc');
+            const quickContrastBtn = document.getElementById('a11y-quick-contrast');
+
+            // Panel Buttons
+            const decBtn = document.getElementById('a11y-font-dec');
+            const resetFontBtn = document.getElementById('a11y-font-reset');
+            const incBtn = document.getElementById('a11y-font-inc');
+
+            const spacingBtn = document.getElementById('a11y-text-spacing-toggle');
+            const dyslexiaBtn = document.getElementById('a11y-dyslexia-toggle');
+
+            const themeDefaultBtn = document.getElementById('a11y-theme-default');
+            const themeLightBtn = document.getElementById('a11y-theme-light');
+            const themeContrastBtn = document.getElementById('a11y-theme-contrast');
+            const themeGrayscaleBtn = document.getElementById('a11y-theme-grayscale');
+
+            const linksBtn = document.getElementById('a11y-links-toggle');
+            const headingsBtn = document.getElementById('a11y-headings-toggle');
+            const cursorBtn = document.getElementById('a11y-cursor-toggle');
+
+            const guideBtn = document.getElementById('a11y-guide-toggle');
+            const maskBtn = document.getElementById('a11y-mask-toggle');
+
+            const animationsBtn = document.getElementById('a11y-animations-toggle');
+            const imagesBtn = document.getElementById('a11y-images-toggle');
+            const focusBtn = document.getElementById('a11y-focus-toggle');
+
+            const statementBtn = document.getElementById('a11y-statement-btn');
+            const resetAllBtn = document.getElementById('a11y-reset-all-btn');
+            const modalCloseBtn = document.getElementById('a11y-modal-close');
+            const modalBackdrop = document.getElementById('a11y-modal-backdrop');
+
+            // Save state helper
+            function saveState() {
+                localStorage.setItem('rohit_a11y_settings', JSON.stringify(state));
+            }
+
+            // Apply State Function
+            function applyState() {
+                // --- 1. Font Size ---
+                html.style.setProperty('--a11y-font-size', `${state.fontScale * 100}%`);
+
+                // --- 2. Spacing ---
+                if (state.spacing) {
+                    body.classList.add('a11y-spacing-active');
+                    setToggleActive(spacingBtn, true);
+                } else {
+                    body.classList.remove('a11y-spacing-active');
+                    setToggleActive(spacingBtn, false);
+                }
+
+                // --- 3. Themes & Contrast ---
+                body.classList.remove('a11y-light-active', 'a11y-contrast-active', 'a11y-grayscale-active');
+                themeDefaultBtn.classList.remove('active');
+                themeDefaultBtn.setAttribute('aria-pressed', 'false');
+                themeLightBtn.classList.remove('active');
+                themeLightBtn.setAttribute('aria-pressed', 'false');
+                themeContrastBtn.classList.remove('active');
+                themeContrastBtn.setAttribute('aria-pressed', 'false');
+                themeGrayscaleBtn.classList.remove('active');
+                themeGrayscaleBtn.setAttribute('aria-pressed', 'false');
+
+                if (state.theme === 'default') {
+                    themeDefaultBtn.classList.add('active');
+                    themeDefaultBtn.setAttribute('aria-pressed', 'true');
+                } else if (state.theme === 'light') {
+                    body.classList.add('a11y-light-active');
+                    themeLightBtn.classList.add('active');
+                    themeLightBtn.setAttribute('aria-pressed', 'true');
+                } else if (state.theme === 'contrast') {
+                    body.classList.add('a11y-contrast-active');
+                    themeContrastBtn.classList.add('active');
+                    themeContrastBtn.setAttribute('aria-pressed', 'true');
+                } else if (state.theme === 'grayscale') {
+                    body.classList.add('a11y-grayscale-active');
+                    themeGrayscaleBtn.classList.add('active');
+                    themeGrayscaleBtn.setAttribute('aria-pressed', 'true');
+                }
+
+                // --- 4. Dyslexia ---
+                if (state.dyslexia) {
+                    body.classList.add('a11y-dyslexia-active');
+                    setToggleActive(dyslexiaBtn, true);
+                } else {
+                    body.classList.remove('a11y-dyslexia-active');
+                    setToggleActive(dyslexiaBtn, false);
+                }
+
+                // --- 5. Highlight Links ---
+                if (state.links) {
+                    body.classList.add('a11y-links-active');
+                    setToggleActive(linksBtn, true);
+                } else {
+                    body.classList.remove('a11y-links-active');
+                    setToggleActive(linksBtn, false);
+                }
+
+                // --- 6. Highlight Headings ---
+                if (state.headings) {
+                    body.classList.add('a11y-headings-active');
+                    setToggleActive(headingsBtn, true);
+                } else {
+                    body.classList.remove('a11y-headings-active');
+                    setToggleActive(headingsBtn, false);
+                }
+
+                // --- 7. Big Cursor ---
+                if (state.cursor) {
+                    body.classList.add('a11y-cursor-active');
+                    setToggleActive(cursorBtn, true);
+                } else {
+                    body.classList.remove('a11y-cursor-active');
+                    setToggleActive(cursorBtn, false);
+                }
+
+                // --- 8. Reading Guide ---
+                if (state.guide) {
+                    readingGuide.classList.add('active');
+                    setToggleActive(guideBtn, true);
+                } else {
+                    readingGuide.classList.remove('active');
+                    setToggleActive(guideBtn, false);
+                }
+
+                // --- 9. Reading Mask ---
+                if (state.mask) {
+                    readingMask.classList.add('active');
+                    setToggleActive(maskBtn, true);
+                } else {
+                    readingMask.classList.remove('active');
+                    setToggleActive(maskBtn, false);
+                }
+
+                // --- 10. Reduced Motion ---
+                if (state.animations) {
+                    body.classList.add('a11y-animations-active');
+                    setToggleActive(animationsBtn, true);
+                    if (window.gsap) {
+                        gsap.globalTimeline.pause();
+                    }
+                } else {
+                    body.classList.remove('a11y-animations-active');
+                    setToggleActive(animationsBtn, false);
+                    if (window.gsap) {
+                        gsap.globalTimeline.play();
+                    }
+                }
+
+                // --- 11. Hide Images ---
+                if (state.images) {
+                    body.classList.add('a11y-images-active');
+                    setToggleActive(imagesBtn, true);
+                } else {
+                    body.classList.remove('a11y-images-active');
+                    setToggleActive(imagesBtn, false);
+                }
+
+                // --- 12. Focus Highlight ---
+                if (state.focusHighlight) {
+                    body.classList.add('a11y-focus-active');
+                    setToggleActive(focusBtn, true);
+                } else {
+                    body.classList.remove('a11y-focus-active');
+                    setToggleActive(focusBtn, false);
+                }
+
+                // --- 13. Expand Panel ---
+                if (state.panelExpanded) {
+                    panel.classList.remove('hidden');
+                    panel.removeAttribute('aria-hidden');
+                    togglePanelBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    panel.classList.add('hidden');
+                    panel.setAttribute('aria-hidden', 'true');
+                    togglePanelBtn.setAttribute('aria-expanded', 'false');
+                }
+
+                // Update navbar positions dynamically
+                setTimeout(updateToolbarHeight, 50);
+            }
+
+            function setToggleActive(button, active) {
+                if (!button) return;
+                const statusSpan = button.querySelector('.a11y-status');
+                if (active) {
+                    button.classList.add('active');
+                    button.setAttribute('aria-pressed', 'true');
+                    if (statusSpan) statusSpan.textContent = 'On';
+                } else {
+                    button.classList.remove('active');
+                    button.setAttribute('aria-pressed', 'false');
+                    if (statusSpan) statusSpan.textContent = 'Off';
+                }
+            }
+
+            function updateToolbarHeight() {
+                if (toolbar) {
+                    const height = toolbar.offsetHeight;
+                    html.style.setProperty('--a11y-toolbar-height', `${height}px`);
+                }
+            }
+
+            // Bind resize
+            window.addEventListener('resize', updateToolbarHeight);
+
+            // Toggle Panel
+            togglePanelBtn.addEventListener('click', () => {
+                state.panelExpanded = !state.panelExpanded;
+                applyState();
+                saveState();
+            });
+
+            // Font scaling
+            function changeFontScale(delta) {
+                const scales = [0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5];
+                let currentIndex = scales.indexOf(state.fontScale);
+                if (currentIndex === -1) currentIndex = 2;
+
+                let newIndex = currentIndex + delta;
+                if (newIndex >= 0 && newIndex < scales.length) {
+                    state.fontScale = scales[newIndex];
+                    applyState();
+                    saveState();
+                }
+            }
+
+            quickDecBtn.addEventListener('click', () => changeFontScale(-1));
+            quickIncBtn.addEventListener('click', () => changeFontScale(1));
+            decBtn.addEventListener('click', () => changeFontScale(-1));
+            incBtn.addEventListener('click', () => changeFontScale(1));
+            resetFontBtn.addEventListener('click', () => {
+                state.fontScale = 1.0;
+                applyState();
+                saveState();
+            });
+
+            // Spacing
+            spacingBtn.addEventListener('click', () => {
+                state.spacing = !state.spacing;
+                applyState();
+                saveState();
+            });
+
+            // Dyslexia
+            dyslexiaBtn.addEventListener('click', () => {
+                state.dyslexia = !state.dyslexia;
+                applyState();
+                saveState();
+            });
+
+            // Themes
+            themeDefaultBtn.addEventListener('click', () => {
+                state.theme = 'default';
+                applyState();
+                saveState();
+            });
+            themeLightBtn.addEventListener('click', () => {
+                state.theme = 'light';
+                applyState();
+                saveState();
+            });
+            themeContrastBtn.addEventListener('click', () => {
+                state.theme = 'contrast';
+                applyState();
+                saveState();
+            });
+            themeGrayscaleBtn.addEventListener('click', () => {
+                state.theme = 'grayscale';
+                applyState();
+                saveState();
+            });
+            quickContrastBtn.addEventListener('click', () => {
+                state.theme = state.theme === 'contrast' ? 'default' : 'contrast';
+                applyState();
+                saveState();
+            });
+
+            // Visual Assists
+            linksBtn.addEventListener('click', () => {
+                state.links = !state.links;
+                applyState();
+                saveState();
+            });
+            headingsBtn.addEventListener('click', () => {
+                state.headings = !state.headings;
+                applyState();
+                saveState();
+            });
+            cursorBtn.addEventListener('click', () => {
+                state.cursor = !state.cursor;
+                applyState();
+                saveState();
+            });
+
+            // Reading Tools
+            guideBtn.addEventListener('click', () => {
+                state.guide = !state.guide;
+                applyState();
+                saveState();
+            });
+            maskBtn.addEventListener('click', () => {
+                state.mask = !state.mask;
+                applyState();
+                saveState();
+            });
+
+            // Motion & Media
+            animationsBtn.addEventListener('click', () => {
+                state.animations = !state.animations;
+                applyState();
+                saveState();
+            });
+            imagesBtn.addEventListener('click', () => {
+                state.images = !state.images;
+                applyState();
+                saveState();
+            });
+            focusBtn.addEventListener('click', () => {
+                state.focusHighlight = !state.focusHighlight;
+                applyState();
+                saveState();
+            });
+
+            // Reset All Settings
+            resetAllBtn.addEventListener('click', () => {
+                state = { ...defaultState };
+                applyState();
+                saveState();
+            });
+
+            // Mouse Tracking for Reading Line & Mask
+            document.addEventListener('mousemove', (e) => {
+                if (state.guide) {
+                    readingGuide.style.top = `${e.clientY}px`;
+                }
+                if (state.mask) {
+                    const maskHeight = 120;
+                    html.style.setProperty('--a11y-mask-top', `${e.clientY - maskHeight / 2}px`);
+                    html.style.setProperty('--a11y-mask-bottom', `${e.clientY + maskHeight / 2}px`);
+                }
+            });
+
+            // Modal Accessibility Statement Handling
+            let previousActiveElement = null;
+
+            function openModal() {
+                previousActiveElement = document.activeElement;
+                modal.classList.remove('hidden');
+                modal.setAttribute('aria-hidden', 'false');
+                modalCloseBtn.focus();
+                document.addEventListener('keydown', trapFocus);
+                body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                modal.classList.add('hidden');
+                modal.setAttribute('aria-hidden', 'true');
+                document.removeEventListener('keydown', trapFocus);
+                body.style.overflow = '';
+                if (previousActiveElement) {
+                    previousActiveElement.focus();
+                }
+            }
+
+            function trapFocus(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                    return;
+                }
+
+                if (e.key === 'Tab') {
+                    const focusables = modal.querySelectorAll('button, a, input, textarea, select, [tabindex]:not([tabindex="-1"])');
+                    if (focusables.length === 0) return;
+                    const firstFocusable = focusables[0];
+                    const lastFocusable = focusables[focusables.length - 1];
+
+                    if (e.shiftKey) { // Shift + Tab
+                        if (document.activeElement === firstFocusable) {
+                            lastFocusable.focus();
+                            e.preventDefault();
+                        }
+                    } else { // Tab
+                        if (document.activeElement === lastFocusable) {
+                            firstFocusable.focus();
+                            e.preventDefault();
+                        }
+                    }
+                }
+            }
+
+            statementBtn.addEventListener('click', openModal);
+            modalCloseBtn.addEventListener('click', closeModal);
+            modalBackdrop.addEventListener('click', closeModal);
+
+            // Initial check
+            applyState();
+            window.addEventListener('load', updateToolbarHeight);
+        });
     </script>
+
+    <!-- Reading guide line -->
+    <div id="a11y-reading-guide" class="a11y-reading-guide" aria-hidden="true"></div>
+
+    <!-- Reading mask overlay -->
+    <div id="a11y-reading-mask" class="a11y-reading-mask" aria-hidden="true"></div>
+
+    <!-- Accessibility Statement Modal -->
+    <div id="a11y-modal" class="a11y-modal hidden" role="dialog" aria-modal="true" aria-labelledby="a11y-modal-title"
+        aria-describedby="a11y-modal-desc">
+        <div class="a11y-modal-backdrop" id="a11y-modal-backdrop"></div>
+        <div class="a11y-modal-content glass">
+            <div class="a11y-modal-header">
+                <h2 id="a11y-modal-title" class="text-2xl font-bold font-['Space_Grotesk'] text-white">Accessibility
+                    Statement</h2>
+                <button type="button" class="a11y-modal-close" id="a11y-modal-close"
+                    aria-label="Close accessibility statement modal">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
+                        <path fill="currentColor"
+                            d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="a11y-modal-body" id="a11y-modal-desc">
+                <p class="mb-4">
+                    We are committed to ensuring digital accessibility for people with disabilities. We are continually
+                    improving the user experience for everyone and applying the relevant accessibility standards to
+                    satisfy <strong>WCAG 2.1 Level AA</strong> compliance.
+                </p>
+                <h3 class="text-lg font-semibold mt-6 mb-2 text-indigo-400">Conformance Status</h3>
+                <p class="mb-4">
+                    The Web Content Accessibility Guidelines (WCAG) defines requirements for designers and developers to
+                    improve accessibility for people with disabilities. It defines three levels of conformance: Level A,
+                    Level AA, and Level AAA. This portfolio is fully conformant with WCAG 2.1 Level AA.
+                </p>
+                <h3 class="text-lg font-semibold mt-6 mb-2 text-indigo-400">Accessibility Features Available</h3>
+                <ul class="list-disc pl-6 mb-4 space-y-1">
+                    <li><strong>Keyboard Accessibility:</strong> Full navigation support using standard keyboard
+                        triggers.</li>
+                    <li><strong>Text Resizing:</strong> Zoom and scale the layout proportionally without breaks.</li>
+                    <li><strong>Text Spacing Adjustment:</strong> Toggles expanded spacing for better readability.</li>
+                    <li><strong>High Contrast & Themes:</strong> High contrast, grayscale, and light/dark themes.</li>
+                    <li><strong>Visual Guides:</strong> Focus outlines, dyslexia-friendly font (Lexend), customized
+                        large cursor, reading guides, and reading masks.</li>
+                    <li><strong>Reduced Motion:</strong> Ability to freeze GSAP, Three.js animations, and CSS
+                        transitions.</li>
+                </ul>
+                <h3 class="text-lg font-semibold mt-6 mb-2 text-indigo-400">Feedback</h3>
+                <p class="mb-4">
+                    We welcome your feedback on the accessibility of this website. Please let us know if you encounter
+                    accessibility barriers:
+                </p>
+                <p class="mb-2"><strong>Email:</strong> <a href="mailto:rohitsharmag5555@gmail.com"
+                        class="text-indigo-400 underline">rohitsharmag5555@gmail.com</a></p>
+                <p class="mb-4"><strong>Phone:</strong> <a href="tel:+91-9953497117"
+                        class="text-indigo-400 underline">+91 99534 97117</a></p>
+                <p class="text-sm text-gray-500 mt-6">Last updated: July 2026</p>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

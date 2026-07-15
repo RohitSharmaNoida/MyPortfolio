@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 410 150" width="100%" height="100%">
+  <!-- Style Declarations for Fonts -->
+  <defs>
+    <style>
+      .logo-text-bold {
+        font-family: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+        font-weight: 800;
+        font-size: 32px;
+        fill: #ffffff;
+        letter-spacing: 1px;
+      }
+      .logo-text-light {
+        font-family: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+        font-weight: 400;
+        font-size: 32px;
+        fill: #6366f1;
+        letter-spacing: 1px;
+      }
+      .logo-sub {
+        font-family: 'Inter', -apple-system, sans-serif;
+        font-weight: 600;
+        font-size: 13px;
+        fill: #94a3b8;
+        letter-spacing: 5px;
+      }
+    </style>
+  </defs>
+
+  <!-- Left: Hexagon Emblem (Grown to 100x100 space) -->
+  <g transform="translate(15, 25)">
+    <!-- Outer Hexagon Border (Light Lavender/Blue) -->
+    <polygon points="50,5 89,27.5 89,72.5 50,95 11,72.5 11,27.5" stroke="#dedeff" stroke-width="2" fill="none" stroke-linejoin="round" />
+    
+    <!-- Inner Hexagon Border (Vibrant Blue/Indigo) -->
+    <polygon points="50,10 84.6,30 84.6,70 50,90 15.4,70 15.4,30" stroke="#6366f1" stroke-width="4.5" fill="none" stroke-linejoin="round" />
+    
+    <!-- Solid Filled Hexagon Center (Dark Navy/Black) -->
+    <polygon points="50,15 80.3,32.5 80.3,67.5 50,85 19.7,67.5 19.7,32.5" fill="#13141f" stroke="#13141f" stroke-width="1" stroke-linejoin="round" />
+    
+    <!-- Serif Monogram "RS" -->
+    <text x="49" y="59" font-family="'Georgia', 'Times New Roman', 'serif'" font-weight="bold" font-size="28" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">RS</text>
+  </g>
+
+  <!-- Decorative Dot between Emblem and Text -->
+  <circle cx="142" cy="75" r="3.5" fill="#6366f1" />
+
+  <!-- Right: Logo Text -->
+  <text x="160" y="63" class="logo-text-bold">ROHIT</text>
+  <text x="160" y="98" class="logo-text-light">SHARMA</text>
+  
+  <!-- Divider Line -->
+  <line x1="160" y1="110" x2="340" y2="110" stroke="#6366f1" stroke-width="1.5" opacity="0.5" />
+  
+  <!-- Subtitle -->
+  <text x="160" y="128" class="logo-sub">UI DEVELOPER</text>
+
+  <!-- Decorative Accent Dots on the Right -->
+  <circle cx="356" cy="74" r="4.5" fill="#6366f1" opacity="0.4" />
+  <circle cx="368" cy="62" r="3" fill="#6366f1" opacity="0.5" />
+  <circle cx="376" cy="80" r="1.5" fill="#6366f1" opacity="0.3" />
+  <circle cx="360" cy="94" r="2.5" fill="#6366f1" opacity="0.4" />
+</svg>
