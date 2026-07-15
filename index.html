@@ -1,0 +1,1479 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohit Sharma | UI Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        #three-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #6366f1, #8b5cf6);
+            border-radius: 3px;
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(99, 102, 241, 0.5);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.15);
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa, #6366f1);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        .gradient-text-2 {
+            background: linear-gradient(135deg, #f472b6, #8b5cf6, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Typing Animation */
+        .typing-container {
+            display: inline-block;
+        }
+
+        .typing-text {
+            border-right: 3px solid #6366f1;
+            animation: blink 0.8s infinite;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @keyframes blink {
+            0%, 100% { border-color: #6366f1; }
+            50% { border-color: transparent; }
+        }
+
+        /* Floating Animation */
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .float-delay {
+            animation: float 6s ease-in-out 2s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(3deg); }
+        }
+
+        /* Glow Effect */
+        .glow-border {
+            position: relative;
+        }
+
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #a78bfa, #f472b6, #6366f1);
+            background-size: 400% 400%;
+            animation: borderGlow 4s ease infinite;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .glow-border:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Magnetic Button */
+        .magnetic-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .magnetic-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .magnetic-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Skill Bar */
+        .skill-bar {
+            position: relative;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #a78bfa);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .skill-fill.active {
+            transform: scaleX(1);
+        }
+
+        /* Project Card Image */
+        .project-img {
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .glass-card:hover .project-img {
+            transform: scale(1.1);
+            filter: brightness(0.7);
+        }
+
+        /* Cursor follower */
+        .cursor-follower {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #6366f1;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease, width 0.3s, height 0.3s, border-color 0.3s;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor-dot {
+            width: 6px;
+            height: 6px;
+            background: #6366f1;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Nav */
+        .nav-link {
+            position: relative;
+            padding: 8px 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Particle effect on hero */
+        .hero-particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #6366f1;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: particleFloat 8s ease-in-out infinite;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.5; }
+            25% { transform: translateY(-30px) translateX(10px) scale(1.5); opacity: 0.8; }
+            50% { transform: translateY(-50px) translateX(-10px) scale(1); opacity: 0.3; }
+            75% { transform: translateY(-20px) translateX(20px) scale(1.3); opacity: 0.6; }
+        }
+
+        /* Section divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+        }
+
+        /* Experience timeline */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #6366f1, transparent);
+            transform: translateX(-50%);
+        }
+
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background: #6366f1;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cursor-follower, .cursor-dot {
+                display: none;
+            }
+            .timeline-line {
+                left: 20px;
+            }
+            .timeline-dot {
+                left: 20px;
+            }
+        }
+
+        /* Marquee */
+        .marquee {
+            animation: marquee 20s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Stagger children animation */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .stagger-children.active > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+        .stagger-children.active > *:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+
+        /* 3D tilt effect */
+        .tilt-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .tilt-card-inner {
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+        }
+
+        /* Noise overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Smooth page transitions */
+        .page-section {
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Contact form */
+        .form-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 20px;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+            width: 100%;
+        }
+
+        .form-input:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Loading screen */
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #0a0a0f;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(99, 102, 241, 0.2);
+            border-top-color: #6366f1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Floating shapes */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+        }
+
+        /* Counter animation */
+        .counter {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-follower" id="cursorFollower"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- Three.js Canvas -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+        <!-- Navigation -->
+        <nav class="fixed top-0 left-0 right-0 z-50 glass" id="navbar">
+            <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold font-['Space_Grotesk'] gradient-text">R.S</a>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#skills" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Skills</a>
+                    <a href="#projects" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Projects</a>
+                    <a href="#experience" class="nav-link text-sm text-gray-300 hover:text-white transition-colors">Experience</a>
+                    <a href="#contact" class="magnetic-btn px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full text-sm font-medium hover:shadow-lg hover:shadow-indigo-500/30 transition-all">Contact</a>
+                </div>
+                <button class="md:hidden text-white" id="mobileMenuBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden bg-black/90 backdrop-blur-xl border-t border-white/5" id="mobileMenu">
+                <div class="px-6 py-4 flex flex-col gap-4">
+                    <a href="#home" class="text-gray-300 hover:text-white py-2">Home</a>
+                    <a href="#about" class="text-gray-300 hover:text-white py-2">About</a>
+                    <a href="#skills" class="text-gray-300 hover:text-white py-2">Skills</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white py-2">Projects</a>
+                    <a href="#experience" class="text-gray-300 hover:text-white py-2">Experience</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white py-2">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="page-section flex items-center justify-center relative overflow-hidden">
+            <!-- Floating Shapes -->
+            <div class="shape w-96 h-96 bg-indigo-500 top-20 -left-48"></div>
+            <div class="shape w-80 h-80 bg-purple-500 bottom-20 -right-40"></div>
+            <div class="shape w-64 h-64 bg-pink-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+            
+            <div class="max-w-7xl mx-auto px-6 py-32 grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <div class="reveal" data-delay="0.2">
+                        <p class="text-indigo-400 font-medium mb-4 text-lg tracking-wider">👋 Hello, I'm</p>
+                    </div>
+                    <div class="reveal" data-delay="0.4">
+                        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black font-['Space_Grotesk'] leading-tight mb-4">
+                            Rohit<br><span class="gradient-text">Sharma</span>
+                        </h1>
+                    </div>
+                    <div class="reveal" data-delay="0.6">
+                        <div class="typing-container mb-8">
+                            <span class="text-xl md:text-2xl text-gray-400 typing-text" id="typingText"></span>
+                        </div>
+                    </div>
+                    <div class="reveal" data-delay="0.8">
+                        <p class="text-gray-400 text-lg max-w-lg mb-10 leading-relaxed">
+                            I craft pixel-perfect, accessible, and performant user interfaces that delight users and drive business results.
+                        </p>
+                    </div>
+                    <div class="reveal flex flex-wrap gap-4 justify-center lg:justify-start" data-delay="1">
+                        <a href="#projects" class="magnetic-btn px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full font-semibold hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="magnetic-btn px-8 py-4 border border-white/20 rounded-full font-semibold hover:bg-white/5 transition-all duration-300 hover:-translate-y-1">
+                            Let's Talk
+                        </a>
+                    </div>
+                    <div class="reveal flex items-center gap-8 mt-12 justify-center lg:justify-start" data-delay="1.2">
+                        <div class="text-center">
+                            <span class="text-3xl font-bold font-['Space_Grotesk'] counter" data-target="50">0</span><span class="text-indigo-400 text-2xl font-bold">+</span>
+                            <p class="text-gray-500 text-sm mt-1">Projects</p>
+                        </div>
+                        <div class="w-px h-12 bg-white/10"></div>
+                        <div class="text-center">
+                            <span class="text-3xl font-bold font-['Space_Grotesk'] counter" data-target="5">0</span><span class="text-indigo-400 text-2xl font-bold">+</span>
+                            <p class="text-gray-500 text-sm mt-1">Years Exp</p>
+                        </div>
+                        <div class="w-px h-12 bg-white/10"></div>
+                        <div class="text-center">
+                            <span class="text-3xl font-bold font-['Space_Grotesk'] counter" data-target="30">0</span><span class="text-indigo-400 text-2xl font-bold">+</span>
+                            <p class="text-gray-500 text-sm mt-1">Clients</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative flex justify-center reveal-right" data-delay="0.6">
+                    <div class="relative w-80 h-80 md:w-96 md:h-96">
+                        <!-- 3D-like avatar container -->
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 animate-pulse"></div>
+                        <div class="absolute inset-4 rounded-full bg-gradient-to-br from-indigo-500/10 to-purple-500/10 float">
+                            <div class="w-full h-full rounded-full bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10 flex items-center justify-center overflow-hidden">
+                                <svg class="w-48 h-48 text-indigo-400/50" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Floating tech icons -->
+                        <div class="absolute -top-4 right-8 glass-card p-3 rounded-xl float">
+                            <svg class="w-8 h-8 text-blue-400" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.31 0-.592.068-.845.198C4.558 2.37 4.322 4.267 5.16 6.84 3.2 8.258 1.836 9.852 1.836 11.16c0 .807.42 1.482 1.198 1.95-.164.464-.25.94-.25 1.39 0 1.3.97 2.263 2.7 2.756-.07.38-.104.766-.104 1.145 0 2.14 1.39 3.398 3.715 3.398 1.616 0 3.636-.706 5.882-2.076 2.246 1.37 4.266 2.076 5.882 2.076 2.325 0 3.715-1.258 3.715-3.398 0-.38-.034-.764-.104-1.145 1.73-.493 2.7-1.456 2.7-2.756 0-.45-.086-.927-.25-1.39.778-.468 1.198-1.143 1.198-1.95 0-1.308-1.364-2.902-3.324-4.32.838-2.573.603-4.47-.998-5.305a1.883 1.883 0 0 0-.846-.198z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute top-1/2 -left-8 glass-card p-3 rounded-xl float-delay">
+                            <svg class="w-8 h-8 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-4 right-12 glass-card p-3 rounded-xl float">
+                            <svg class="w-8 h-8 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.572 0c-.176.311-.243.678-.195 1.075.2.495.535.992.972 1.172.74.306 1.573.446 2.333.63.865.21 1.68.57 2.29 1.322.468.576.75 1.298.852 2.052.145 1.062-.06 2.2-.593 3.166-.795 1.44-2.246 2.342-3.86 2.676-1.136.235-2.312.228-3.46.05-1.66-.258-3.134-1.095-4.245-2.31-.82-.894-1.375-2.024-1.577-3.195-.134-.774-.132-1.58.044-2.348.332-1.448 1.245-2.656 2.49-3.462 1.1-.714 2.378-1.036 3.688-1.106.37-.02.743-.01 1.113.02.706.055 1.394.22 2.05.49.498.206 1.07.474 1.316 1.01.158.342.168.733.098 1.1-.1.538-.412 1.026-.837 1.33-.545.39-1.228.57-1.883.636-.372.037-.746.04-1.116.003-.503-.05-.994-.18-1.406-.464-.49-.34-.806-.876-.872-1.476-.05-.46.012-.94.198-1.35-.3.015-.595.062-.88.142z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+                <span class="text-xs text-gray-500 tracking-widest">SCROLL</span>
+                <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Marquee Section -->
+        <div class="py-8 overflow-hidden border-y border-white/5">
+            <div class="marquee flex items-center gap-12 whitespace-nowrap">
+                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">UI DEVELOPMENT</span>
+                <span class="text-indigo-500 text-4xl">✦</span>
+                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">REACT</span>
+                <span class="text-purple-500 text-4xl">✦</span>
+                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">COMPONENT DESIGN</span>
+                <span class="text-pink-500 text-4xl">✦</span>
+                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">ANIMATION</span>
+                <span class="text-indigo-500 text-4xl">✦</span>
+                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">UI DEVELOPMENT</span>
+                <span class="text-indigo-500 text-4xl">✦</span>
+                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">REACT</span>
+                <span class="text-purple-500 text-4xl">✦</span>
+                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">COMPONENT DESIGN</span>
+                <span class="text-pink-500 text-4xl">✦</span>
+                <span class="text-4xl md:text-6xl font-bold font-['Space_Grotesk'] text-white/5">ANIMATION</span>
+                <span class="text-indigo-500 text-4xl">✦</span>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="page-section py-32 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="reveal mb-16">
+                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">GET TO KNOW ME</p>
+                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">About <span class="gradient-text">Me</span></h2>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="reveal-left">
+                        <div class="relative">
+                            <div class="glass-card rounded-3xl p-8 relative overflow-hidden">
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-indigo-500/20 to-transparent rounded-bl-full"></div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-2xl p-6 border border-indigo-500/20">
+                                        <span class="text-3xl mb-2 block">🎨</span>
+                                        <h4 class="font-semibold text-sm">UI Design</h4>
+                                        <p class="text-xs text-gray-400 mt-1">Figma, Sketch</p>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl p-6 border border-purple-500/20">
+                                        <span class="text-3xl mb-2 block">⚡</span>
+                                        <h4 class="font-semibold text-sm">Performance</h4>
+                                        <p class="text-xs text-gray-400 mt-1">Core Web Vitals</p>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-pink-500/10 to-red-500/10 rounded-2xl p-6 border border-pink-500/20">
+                                        <span class="text-3xl mb-2 block">📱</span>
+                                        <h4 class="font-semibold text-sm">Responsive</h4>
+                                        <p class="text-xs text-gray-400 mt-1">Mobile First</p>
+                                    </div>
+                                    <div class="bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-2xl p-6 border border-cyan-500/20">
+                                        <span class="text-3xl mb-2 block">♿</span>
+                                        <h4 class="font-semibold text-sm">A11y</h4>
+                                        <p class="text-xs text-gray-400 mt-1">WCAG 2.1 AA</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal-right">
+                        <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                            I'm a passionate UI Developer with <span class="text-indigo-400 font-semibold">5+ years</span> of experience building modern, responsive web applications. I bridge the gap between design and development, creating interfaces that are both beautiful and functional.
+                        </p>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                            My expertise spans the full frontend stack - from crafting pixel-perfect components to implementing complex animations and optimizing for performance. I believe in writing clean, maintainable code that scales.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 glass-card rounded-full text-sm text-indigo-300">Problem Solver</span>
+                            <span class="px-4 py-2 glass-card rounded-full text-sm text-purple-300">Detail Oriented</span>
+                            <span class="px-4 py-2 glass-card rounded-full text-sm text-pink-300">Team Player</span>
+                            <span class="px-4 py-2 glass-card rounded-full text-sm text-cyan-300">Fast Learner</span>
+                            <span class="px-4 py-2 glass-card rounded-full text-sm text-green-300">Creative Thinker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-32 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="reveal mb-16 text-center">
+                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">WHAT I DO</p>
+                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">My <span class="gradient-text">Skills</span></h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children" id="skillsGrid">
+                    <div class="glass-card rounded-2xl p-8 tilt-card">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.07-.999.07-.999-11.97.003.698 7.994h8.364l-.35 3.494-3.243.924-3.267-.924-.175-2.01H6.22l.386 4.2 6.387 1.832 6.394-1.832.824-9.968H8.531z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Frontend Core</h3>
+                        <p class="text-gray-400 text-sm mb-4">HTML5, CSS3, JavaScript (ES6+), TypeScript</p>
+                        <div class="skill-bar mb-2">
+                            <div class="skill-fill" style="width: 95%"></div>
+                        </div>
+                        <span class="text-xs text-gray-500">95% Proficiency</span>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 tilt-card">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-cyan-400" viewBox="0 0 24 24" fill="currentColor">
+                                <circle cx="12" cy="12" r="2.139"/>
+                                <path d="M12 5.561c4.498 0 8.556.182 11.375 1.313 1.593.639 2.347 1.398 2.347 2.127 0 .727-.754 1.487-2.347 2.126C20.556 12.258 16.498 12.44 12 12.44s-8.556-.182-11.375-1.314C-.593 10.487-1.347 9.727-1.347 9c0-.728.754-1.488 2.347-2.127C3.444 5.743 7.502 5.56 12 5.561zM12 0C6.477 0 2 4.477 2 10h10V0z" transform="translate(0, 2)" opacity="0"/>
+                                <ellipse cx="12" cy="12" rx="10.5" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(0, 12, 12)"/>
+                                <ellipse cx="12" cy="12" rx="10.5" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(60, 12, 12)"/>
+                                <ellipse cx="12" cy="12" rx="10.5" ry="4.5" fill="none" stroke="currentColor" stroke-width="1.5" transform="rotate(120, 12, 12)"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">React Ecosystem</h3>
+                        <p class="text-gray-400 text-sm mb-4">React, Next.js, Redux, Zustand, React Query</p>
+                        <div class="skill-bar mb-2">
+                            <div class="skill-fill" style="width: 92%"></div>
+                        </div>
+                        <span class="text-xs text-gray-500">92% Proficiency</span>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 tilt-card">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">CSS & Animation</h3>
+                        <p class="text-gray-400 text-sm mb-4">Tailwind, SCSS, Framer Motion, GSAP</p>
+                        <div class="skill-bar mb-2">
+                            <div class="skill-fill" style="width: 90%"></div>
+                        </div>
+                        <span class="text-xs text-gray-500">90% Proficiency</span>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 tilt-card">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500/20 to-emerald-500/20 flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Testing & Quality</h3>
+                        <p class="text-gray-400 text-sm mb-4">Jest, React Testing Library, Cypress, Playwright</p>
+                        <div class="skill-bar mb-2">
+                            <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                        <span class="text-xs text-gray-500">85% Proficiency</span>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 tilt-card">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500/20 to-amber-500/20 flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Build Tools</h3>
+                        <p class="text-gray-400 text-sm mb-4">Vite, Webpack, Rollup, esbuild, Turborepo</p>
+                        <div class="skill-bar mb-2">
+                            <div class="skill-fill" style="width: 88%"></div>
+                        </div>
+                        <span class="text-xs text-gray-500">88% Proficiency</span>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-8 tilt-card">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-pink-500/20 to-rose-500/20 flex items-center justify-center mb-6">
+                            <svg class="w-7 h-7 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">UI Libraries</h3>
+                        <p class="text-gray-400 text-sm mb-4">Storybook, Radix UI, Headless UI, MUI</p>
+                        <div class="skill-bar mb-2">
+                            <div class="skill-fill" style="width: 91%"></div>
+                        </div>
+                        <span class="text-xs text-gray-500">91% Proficiency</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-32 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="reveal mb-16 text-center">
+                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">MY WORK</p>
+                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Featured <span class="gradient-text">Projects</span></h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.1">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="project-img w-full h-full bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-6xl">🛍️</span>
+                                    <p class="text-xl font-bold mt-4">E-Commerce Platform</p>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
+                                <a href="#" class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">Live Demo</a>
+                                <a href="#" class="px-6 py-3 border border-white text-white rounded-full font-medium text-sm hover:bg-white/10 transition-colors">GitHub</a>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-2">ShopFlow</h3>
+                            <p class="text-gray-400 mb-4">A modern e-commerce platform with real-time inventory, AI recommendations, and seamless checkout experience.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full text-xs">React</span>
+                                <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">Next.js</span>
+                                <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">Stripe</span>
+                                <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">Tailwind</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.2">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="project-img w-full h-full bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-6xl">📊</span>
+                                    <p class="text-xl font-bold mt-4">Analytics Dashboard</p>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
+                                <a href="#" class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">Live Demo</a>
+                                <a href="#" class="px-6 py-3 border border-white text-white rounded-full font-medium text-sm hover:bg-white/10 transition-colors">GitHub</a>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-2">DataViz Pro</h3>
+                            <p class="text-gray-400 mb-4">Real-time analytics dashboard with interactive charts, customizable widgets, and automated reporting.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">React</span>
+                                <span class="px-3 py-1 bg-green-500/10 text-green-300 rounded-full text-xs">D3.js</span>
+                                <span class="px-3 py-1 bg-yellow-500/10 text-yellow-300 rounded-full text-xs">WebSocket</span>
+                                <span class="px-3 py-1 bg-red-500/10 text-red-300 rounded-full text-xs">Redux</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.3">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="project-img w-full h-full bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-600 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-6xl">🎨</span>
+                                    <p class="text-xl font-bold mt-4">Design System</p>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
+                                <a href="#" class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">Live Demo</a>
+                                <a href="#" class="px-6 py-3 border border-white text-white rounded-full font-medium text-sm hover:bg-white/10 transition-colors">GitHub</a>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-2">Prism UI</h3>
+                            <p class="text-gray-400 mb-4">A comprehensive design system with 50+ accessible components, dark mode support, and full documentation.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-emerald-500/10 text-emerald-300 rounded-full text-xs">Storybook</span>
+                                <span class="px-3 py-1 bg-teal-500/10 text-teal-300 rounded-full text-xs">Radix UI</span>
+                                <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">TypeScript</span>
+                                <span class="px-3 py-1 bg-violet-500/10 text-violet-300 rounded-full text-xs">Figma</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="glass-card rounded-3xl overflow-hidden group reveal" data-delay="0.4">
+                        <div class="relative h-64 overflow-hidden">
+                            <div class="project-img w-full h-full bg-gradient-to-br from-rose-600 via-pink-600 to-purple-600 flex items-center justify-center">
+                                <div class="text-center">
+                                    <span class="text-6xl">🎵</span>
+                                    <p class="text-xl font-bold mt-4">Music Streaming App</p>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4">
+                                <a href="#" class="px-6 py-3 bg-white text-black rounded-full font-medium text-sm hover:bg-gray-200 transition-colors">Live Demo</a>
+                                <a href="#" class="px-6 py-3 border border-white text-white rounded-full font-medium text-sm hover:bg-white/10 transition-colors">GitHub</a>
+                            </div>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="text-2xl font-bold mb-2">SoundWave</h3>
+                            <p class="text-gray-400 mb-4">A Spotify-like music streaming application with audio visualizer, social features, and personalized playlists.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-rose-500/10 text-rose-300 rounded-full text-xs">React</span>
+                                <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">Web Audio API</span>
+                                <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">Framer Motion</span>
+                                <span class="px-3 py-1 bg-amber-500/10 text-amber-300 rounded-full text-xs">Zustand</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-32 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="reveal mb-16 text-center">
+                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">MY JOURNEY</p>
+                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Work <span class="gradient-text">Experience</span></h2>
+                </div>
+
+                <div class="max-w-3xl mx-auto space-y-12">
+                    <div class="reveal glass-card rounded-2xl p-8 relative">
+                        <div class="absolute -left-3 top-8 w-6 h-6 rounded-full bg-indigo-500 border-4 border-gray-900 hidden md:block"></div>
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Senior UI Developer</h3>
+                                <p class="text-indigo-400">TechCorp Inc.</p>
+                            </div>
+                            <span class="text-sm text-gray-500 mt-2 md:mt-0">2022 - Present</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Led the frontend architecture for a SaaS platform serving 100K+ users. Implemented design system, improved performance by 40%, and mentored junior developers.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full text-xs">React</span>
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">TypeScript</span>
+                            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-300 rounded-full text-xs">Next.js</span>
+                        </div>
+                    </div>
+
+                    <div class="reveal glass-card rounded-2xl p-8 relative" data-delay="0.2">
+                        <div class="absolute -left-3 top-8 w-6 h-6 rounded-full bg-purple-500 border-4 border-gray-900 hidden md:block"></div>
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">UI Developer</h3>
+                                <p class="text-purple-400">Digital Agency Co.</p>
+                            </div>
+                            <span class="text-sm text-gray-500 mt-2 md:mt-0">2020 - 2022</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Built responsive web applications for enterprise clients. Created reusable component libraries and collaborated closely with UX designers to deliver pixel-perfect implementations.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 bg-purple-500/10 text-purple-300 rounded-full text-xs">Vue.js</span>
+                            <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">SCSS</span>
+                            <span class="px-3 py-1 bg-green-500/10 text-green-300 rounded-full text-xs">Storybook</span>
+                        </div>
+                    </div>
+
+                    <div class="reveal glass-card rounded-2xl p-8 relative" data-delay="0.4">
+                        <div class="absolute -left-3 top-8 w-6 h-6 rounded-full bg-pink-500 border-4 border-gray-900 hidden md:block"></div>
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold">Frontend Developer</h3>
+                                <p class="text-pink-400">Startup Ventures</p>
+                            </div>
+                            <span class="text-sm text-gray-500 mt-2 md:mt-0">2019 - 2020</span>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed">Developed MVPs for multiple startup products. Gained deep expertise in React ecosystem and modern CSS techniques. Implemented CI/CD pipelines and testing strategies.</p>
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="px-3 py-1 bg-pink-500/10 text-pink-300 rounded-full text-xs">React</span>
+                            <span class="px-3 py-1 bg-amber-500/10 text-amber-300 rounded-full text-xs">Styled Components</span>
+                            <span class="px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs">Jest</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-32 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="reveal mb-16 text-center">
+                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">WHAT THEY SAY</p>
+                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Client <span class="gradient-text">Reviews</span></h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 stagger-children" id="testimonialsGrid">
+                    <div class="glass-card rounded-2xl p-8">
+                        <div class="flex items-center gap-1 mb-4">
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                        </div>
+                        <p class="text-gray-300 mb-6 italic">"Alex transformed our outdated platform into a modern, blazing-fast application. The attention to detail and code quality was exceptional."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-sm font-bold">SJ</div>
+                            <div>
+                                <p class="font-semibold text-sm">Sarah Johnson</p>
+                                <p class="text-xs text-gray-500">CTO, TechStart</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8">
+                        <div class="flex items-center gap-1 mb-4">
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                        </div>
+                        <p class="text-gray-300 mb-6 italic">"Working with Alex was a game-changer. Our conversion rates improved by 35% after the UI redesign. Highly recommend!"</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-sm font-bold">MK</div>
+                            <div>
+                                <p class="font-semibold text-sm">Michael Kim</p>
+                                <p class="text-xs text-gray-500">Founder, GrowthLabs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-2xl p-8">
+                        <div class="flex items-center gap-1 mb-4">
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                            <span class="text-yellow-400">★</span>
+                        </div>
+                        <p class="text-gray-300 mb-6 italic">"The design system Alex built for us saved our team hundreds of hours. The component library is incredibly well-documented and easy to use."</p>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-sm font-bold">EP</div>
+                            <div>
+                                <p class="font-semibold text-sm">Emily Park</p>
+                                <p class="text-xs text-gray-500">Design Lead, InnovateCo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-32 relative">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="reveal mb-16 text-center">
+                    <p class="text-indigo-400 font-medium mb-2 tracking-wider text-sm">GET IN TOUCH</p>
+                    <h2 class="text-4xl md:text-6xl font-bold font-['Space_Grotesk']">Let's <span class="gradient-text">Connect</span></h2>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <div class="reveal-left">
+                        <h3 class="text-2xl font-bold mb-6">Have a project in mind?</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                            I'm always open to new opportunities and interesting projects. Whether you need a complete frontend solution or want to collaborate on something creative, let's talk!
+                        </p>
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Email</p>
+                                    <p class="text-white">alex.chen@email.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Location</p>
+                                    <p class="text-white">San Francisco, CA</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl glass flex items-center justify-center">
+                                    <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Availability</p>
+                                    <p class="text-green-400">Open for freelance</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Social Links -->
+                        <div class="flex gap-4 mt-10">
+                            <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                            <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                            </a>
+                            <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                            </a>
+                            <a href="#" class="w-12 h-12 glass-card rounded-xl flex items-center justify-center hover:bg-indigo-500/20 transition-all hover:-translate-y-1">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="reveal-right">
+                        <form class="space-y-6" id="contactForm">
+                            <div>
+                                <input type="text" placeholder="Your Name" class="form-input" required>
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" class="form-input" required>
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Subject" class="form-input">
+                            </div>
+                            <div>
+                                <textarea placeholder="Your Message" class="form-input min-h-[150px] resize-none" required></textarea>
+                            </div>
+                            <button type="submit" class="magnetic-btn w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl font-semibold text-lg hover:shadow-2xl hover:shadow-indigo-500/30 transition-all duration-300 hover:-translate-y-1 relative overflow-hidden">
+                                <span>Send Message</span>
+                                <svg class="w-5 h-5 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <a href="#" class="text-2xl font-bold font-['Space_Grotesk'] gradient-text">R.S</a>
+                        <p class="text-gray-500 text-sm mt-2">Crafting digital experiences with passion</p>
+                    </div>
+                    <p class="text-gray-500 text-sm">© 2024 Rohit Sharma. All rights reserved.</p>
+                    <div class="flex gap-6">
+                        <a href="#" class="text-gray-500 hover:text-indigo-400 transition-colors text-sm">Privacy</a>
+                        <a href="#" class="text-gray-500 hover:text-indigo-400 transition-colors text-sm">Terms</a>
+                        <a href="#" class="text-gray-500 hover:text-indigo-400 transition-colors text-sm">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Three.js Background
+        const canvas = document.getElementById('three-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+        // Create particles
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 2000;
+        const posArray = new Float32Array(particlesCount * 3);
+        const colorsArray = new Float32Array(particlesCount * 3);
+
+        for (let i = 0; i < particlesCount * 3; i += 3) {
+            posArray[i] = (Math.random() - 0.5) * 10;
+            posArray[i + 1] = (Math.random() - 0.5) * 10;
+            posArray[i + 2] = (Math.random() - 0.5) * 10;
+
+            // Purple/indigo color range
+            colorsArray[i] = 0.4 + Math.random() * 0.2;
+            colorsArray[i + 1] = 0.3 + Math.random() * 0.2;
+            colorsArray[i + 2] = 0.9 + Math.random() * 0.1;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorsArray, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.02,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.6,
+            blending: THREE.AdditiveBlending,
+        });
+
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        // Create wireframe geometries
+        const geometries = [];
+        
+        // Icosahedron
+        const ico = new THREE.Mesh(
+            new THREE.IcosahedronGeometry(1.5, 1),
+            new THREE.MeshBasicMaterial({ color: 0x6366f1, wireframe: true, transparent: true, opacity: 0.15 })
+        );
+        ico.position.set(3, 1, -3);
+        scene.add(ico);
+        geometries.push(ico);
+
+        // Torus
+        const torus = new THREE.Mesh(
+            new THREE.TorusGeometry(1, 0.3, 16, 50),
+            new THREE.MeshBasicMaterial({ color: 0x8b5cf6, wireframe: true, transparent: true, opacity: 0.12 })
+        );
+        torus.position.set(-3, -1, -4);
+        scene.add(torus);
+        geometries.push(torus);
+
+        // Octahedron
+        const octa = new THREE.Mesh(
+            new THREE.OctahedronGeometry(1, 0),
+            new THREE.MeshBasicMaterial({ color: 0xa78bfa, wireframe: true, transparent: true, opacity: 0.1 })
+        );
+        octa.position.set(0, 3, -5);
+        scene.add(octa);
+        geometries.push(octa);
+
+        camera.position.z = 5;
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            particlesMesh.rotation.x += 0.0003;
+            particlesMesh.rotation.y += 0.0005;
+
+            // Mouse parallax
+            particlesMesh.rotation.x += mouseY * 0.0002;
+            particlesMesh.rotation.y += mouseX * 0.0002;
+
+            geometries.forEach((geo, i) => {
+                geo.rotation.x += 0.003 * (i + 1);
+                geo.rotation.y += 0.002 * (i + 1);
+            });
+
+            camera.position.x += (mouseX * 0.5 - camera.position.x) * 0.02;
+            camera.position.y += (mouseY * 0.5 - camera.position.y) * 0.02;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Custom Cursor
+        const cursorFollower = document.getElementById('cursorFollower');
+        const cursorDot = document.getElementById('cursorDot');
+
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+            cursorDot.style.left = cursorX + 'px';
+            cursorDot.style.top = cursorY + 'px';
+        });
+
+        function animateCursor() {
+            followerX += (cursorX - followerX) * 0.1;
+            followerY += (cursorY - followerY) * 0.1;
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor hover effect
+        document.querySelectorAll('a, button, .glass-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorFollower.style.width = '50px';
+                cursorFollower.style.height = '50px';
+                cursorFollower.style.borderColor = '#a78bfa';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorFollower.style.width = '20px';
+                cursorFollower.style.height = '20px';
+                cursorFollower.style.borderColor = '#6366f1';
+            });
+        });
+
+        // Typing Animation
+        const typingTexts = ['UI Developer', 'Frontend Engineer', 'React Specialist', 'Design System Architect', 'Creative Coder'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typingText');
+
+        function type() {
+            const currentText = typingTexts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let timeout = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                timeout = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % typingTexts.length;
+                timeout = 500;
+            }
+
+            setTimeout(type, timeout);
+        }
+        setTimeout(type, 2000);
+
+        // Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Animate skill bars
+                    entry.target.querySelectorAll('.skill-fill').forEach(bar => {
+                        bar.classList.add('active');
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Counter Animation
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.dataset.target);
+                        const duration = 2000;
+                        const start = performance.now();
+                        
+                        function updateCounter(currentTime) {
+                            const elapsed = currentTime - start;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const easeOut = 1 - Math.pow(1 - progress, 3);
+                            counter.textContent = Math.floor(easeOut * target);
+                            
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            }
+                        }
+                        requestAnimationFrame(updateCounter);
+                    });
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            if (el.querySelector('.counter')) {
+                counterObserver.observe(el);
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.style.background = 'rgba(10, 10, 15, 0.8)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.03)';
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 200) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            navbar.style.transition = 'transform 0.3s ease, background 0.3s ease';
+            lastScroll = currentScroll;
+        });
+
+        // 3D Tilt Effect
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span>Message Sent! ✓</span>';
+            btn.style.background = 'linear-gradient(to right, #10b981, #059669)';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                e.target.reset();
+            }, 3000);
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax on scroll for shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            document.querySelectorAll('.shape').forEach((shape, i) => {
+                const speed = (i + 1) * 0.05;
+                shape.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
